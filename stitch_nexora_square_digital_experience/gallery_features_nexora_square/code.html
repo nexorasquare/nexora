@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Nexora Square | Gallery &amp; Features</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Raleway:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#c1c7d3",
+                    "tertiary": "#ffffff",
+                    "outline": "#8b947a",
+                    "secondary-container": "#414751",
+                    "on-tertiary-fixed": "#171c23",
+                    "on-secondary": "#2b313a",
+                    "on-surface": "#d8e4f2",
+                    "surface-dim": "#08141e",
+                    "surface": "#08141e",
+                    "on-secondary-container": "#b0b5c1",
+                    "primary-container": "#a3fa00",
+                    "on-background": "#d8e4f2",
+                    "surface-tint": "#8edb00",
+                    "on-primary-fixed": "#112000",
+                    "tertiary-fixed": "#dee2ed",
+                    "surface-variant": "#2a3641",
+                    "on-tertiary-fixed-variant": "#42474f",
+                    "surface-container-high": "#202b36",
+                    "on-primary": "#203600",
+                    "primary": "#ffffff",
+                    "on-secondary-fixed-variant": "#414751",
+                    "on-primary-container": "#467000",
+                    "inverse-primary": "#426900",
+                    "surface-bright": "#2f3a45",
+                    "on-primary-fixed-variant": "#304f00",
+                    "surface-container-low": "#111d27",
+                    "on-error": "#690005",
+                    "background": "#08141e",
+                    "error-container": "#93000a",
+                    "outline-variant": "#414a34",
+                    "on-tertiary-container": "#60656d",
+                    "on-error-container": "#ffdad6",
+                    "inverse-surface": "#d8e4f2",
+                    "primary-fixed": "#a3fa00",
+                    "tertiary-fixed-dim": "#c2c7d0",
+                    "tertiary-container": "#dee2ed",
+                    "surface-container-highest": "#2a3641",
+                    "primary-fixed-dim": "#8edb00",
+                    "surface-container-lowest": "#040f19",
+                    "surface-container": "#15212b",
+                    "secondary-fixed": "#dde3ef",
+                    "on-surface-variant": "#c0caad",
+                    "error": "#ffb4ab",
+                    "on-tertiary": "#2c3138",
+                    "on-secondary-fixed": "#161c25",
+                    "secondary": "#c1c7d3",
+                    "inverse-on-surface": "#26323c"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "xl": "40px",
+                    "lg": "24px",
+                    "gutter": "24px",
+                    "container-margin": "64px",
+                    "xs": "4px",
+                    "sm": "8px",
+                    "md": "16px",
+                    "unit": "4px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Space Grotesk"],
+                    "headline-lg-mobile": ["Space Grotesk"],
+                    "label-caps": ["Space Grotesk"],
+                    "headline-lg": ["Space Grotesk"],
+                    "display-lg": ["Space Grotesk"],
+                    "body-md": ["Raleway"],
+                    "body-lg": ["Raleway"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "600"}],
+                    "display-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body {
+            background-color: #08141e;
+            color: #d8e4f2;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(34, 40, 49, 0.6);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(57, 62, 70, 0.5);
+        }
+        .neon-glow {
+            box-shadow: 0 0 15px rgba(163, 250, 0, 0.3);
+        }
+        .neon-glow-hover:hover {
+            box-shadow: 0 0 25px rgba(163, 250, 0, 0.5);
+            transform: scale(1.05);
+        }
+        .masonry-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-auto-rows: 200px;
+            gap: 24px;
+        }
+        .masonry-item-tall { grid-row: span 2; }
+        .masonry-item-wide { grid-column: span 2; }
+        
+        .horizontal-scroll {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .horizontal-scroll::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .shimmer {
+            background: linear-gradient(90deg, transparent, rgba(163, 250, 0, 0.1), transparent);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="font-body-md text-body-md">
+<header class="bg-transparent backdrop-blur-xl dark:bg-transparent docked full-width top-0 sticky z-50 border-b border-outline-variant/30 flat no shadows">
+<nav class="flex justify-between items-center w-full px-container-margin py-md mx-auto">
+<div class="font-headline-lg text-headline-lg font-bold tracking-tighter text-primary dark:text-primary">
+                NEXORA SQUARE
+            </div>
+<div class="hidden md:flex gap-xl items-center">
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Workspaces</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Membership</a>
+<a class="font-label-caps text-label-caps text-primary-fixed border-b-2 border-primary-fixed pb-2 transition-all duration-300" href="#">Amenities</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Meeting Rooms</a>
+</div>
+<button class="bg-primary-container text-on-primary-fixed px-lg py-sm font-label-caps text-label-caps rounded-DEFAULT neon-glow-hover transition-all duration-300 cubic-bezier(0.4, 0, 0.2, 1)">
+                Book a Tour
+            </button>
+</nav>
+</header>
+<main class="relative">
+<section class="py-xl px-container-margin">
+<div class="mb-xl">
+<span class="font-label-caps text-label-caps text-primary-fixed tracking-[0.2em] mb-sm block">ARCHITECTURE OF INNOVATION</span>
+<h1 class="font-headline-lg text-headline-lg text-primary mb-md max-w-2xl">CURATED SPACES FOR VISIONARY MINDS.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">Every corner of Nexora Square is engineered for high-performance output and creative flow.</p>
+</div>
+<div class="masonry-grid">
+<div class="masonry-item-tall group relative overflow-hidden rounded-xl glass-panel">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A luxurious private office interior at Nexora Square, featuring sleek matte black furniture, a large window overlooking a futuristic cityscape at dusk, and a minimalist desk with a single high-tech monitor. The lighting is low and atmospheric with subtle green neon accents along the baseboards." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAl058Mg0QSiRLEonZAEdFvF0TALj3k8S1e-bi71MyAnT8CZNSArKa2AgR9AyAzqrVwrlQ_0cyVAITPqnpPNRoHUrs-XL7VsgQRiTCg2bKrGrUfM5vmbUK87wIujLvEKLZ-CwgOuSAqjFhyVJW18_QaV7Oy7b45HfBapTn_J_5cvForQywWnnr1dm7tbG3oZL4sy_dAUbc2CipMeTh7MQfiWd0WvCFe4Bv-gpHoy9t4sX7VbRj48JwNEWKgmiCGAMua3q6te6ED1UWr')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+<div class="absolute bottom-lg left-lg">
+<span class="font-label-caps text-[10px] text-primary-fixed bg-surface-container-highest px-sm py-xs mb-xs inline-block">PREMIUM ACCESS</span>
+<h3 class="font-headline-md text-headline-md text-primary">Private Offices</h3>
+</div>
+</div>
+<div class="masonry-item-wide group relative overflow-hidden rounded-xl glass-panel">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A modern meeting room within Nexora Square co-working hub, showing a large glass table surrounded by ergonomic slate-gray chairs. The walls are sound-proofed with geometric patterns and a large digital white-board is active on the far wall. Vibrant green lighting highlights architectural lines." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB4WOGpCQZtIPYabeN3lPYsyO4fpL4bvxoq4At07xQKuq1eefPRRwKluOq0KOrLaxmAEO-vCqe2FLRtk_mn9eBL8B4L_YRhV1GGsdsWQzo2s9APeqG0JylTx2bPBQbcIl1BcfkHr2mk1MeC_JO1Pu-_ubZufxPCc8yvPuc78qONwUBSYaMdbBHta-Qn8hQS0wAMoFpWvbizCXVcQPKzSAY4bC9vLpDJ4DOWbBI5lTGcmSBwPfLT6AFjTjJpR1g7lLCtkPBkecwc0FLO')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+<div class="absolute bottom-lg left-lg">
+<h3 class="font-headline-md text-headline-md text-primary">Boardrooms &amp; Meeting Suites</h3>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl glass-panel">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A high-end podcast studio at Nexora Square with professional condenser microphones mounted on boom arms. The room features dark acoustic paneling and a soft green backlight. The atmosphere is professional and technologically advanced, designed for premium audio production." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBANf9m5KqOliDcbb4lOp1VLln-U8q1fd-ptUOB04fT2XfdXXIrCV9BXMgkH3M9YUlTsMvm17-YNnPDeSrk71u6JlZZ25vR3qKqUz8Hb2WJ4C0TGauIPCSPtPXzKQe3CdxOcCpw3Xk_kuSlL9pbULJWqfmBEF3oYpqphJ9G9x-6rMxJ9h0oWXJ5jxy1L3JMZCMcejDtDJO3S4T4RC-DHKr8zA7FZsYahHpBK4HiPJTHRiSt5B8Hpy1HTEgpVJ7Muoap1NDKlurkbfJN')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+<div class="absolute bottom-lg left-lg">
+<h3 class="font-headline-md text-headline-md text-primary">Podcast Studio</h3>
+</div>
+</div>
+<div class="group relative overflow-hidden rounded-xl glass-panel">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A content creation studio with a seamless green screen and professional LED ring lights and softboxes. The floor is a polished dark surface reflecting the high-tech equipment. The lighting is crisp and even, suitable for high-quality video production in a modern tech hub." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDGjRjZ0sNdVNyO-8HTN7oB7459XP7hqUv1lEphP7LKJHue1RWwxn-ZHFaAci-YriNBZ-LBMh1W3Imycvk_nK_4WP5_enB_wgI6Vik7dVsa3oU3aPgK2C_6M4JMyW8fd100yrjWD_nzeq6w-aVa2sk_6lvSZXqgqFoHrvkIVT0Bm643FmtoLrsf8Ox68Jo86c5EG1FrkjyyJthUOyt75P7szQZzBuRKCIHfHFLRwo_lzwHCI8hqaQVpssL8DHKE30T4h4LVaUDm8wGt')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+<div class="absolute bottom-lg left-lg">
+<h3 class="font-headline-md text-headline-md text-primary">Content Studio</h3>
+</div>
+</div>
+<div class="masonry-item-wide group relative overflow-hidden rounded-xl glass-panel">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A stylish gaming lounge and library area at Nexora Square featuring deep leather armchairs, a wall-to-wall shelf of tech books, and several high-end gaming consoles with ultra-wide monitors. The mood is relaxed yet sophisticated, utilizing dark minimalist tones and neon-green accents." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDBCiwX-gFHpkIVqjrq0DD7KvW7epE5eYet43Mc-kw5ZCtV94Hkdd35sJpAM-RB1KbvdcHLmUlnZngiE_etEUiwxGkZcX7Tg8YbEEwHBusIISVsOGb1s0evL2B6KAT_Bzscb7c20oe-HKw-YRUudYVYPJFm7fm0QTaU7pe1Pko-Qpq63UUvKCFTTSfVV8j3F-dX5nm5YdjjSGD4vIdbOwH0HvigOs8vGE4uno8-XOLamrZsZHWuvkV9NYJ6Oj37MgmPSsAaX-h8mF1e')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background to-transparent opacity-60"></div>
+<div class="absolute bottom-lg left-lg">
+<h3 class="font-headline-md text-headline-md text-primary">Library &amp; Gaming Lounge</h3>
+</div>
+</div>
+</div>
+</section>
+<section class="py-xl bg-surface-container-lowest">
+<div class="px-container-margin mb-xl">
+<span class="font-label-caps text-label-caps text-primary-fixed tracking-[0.2em] mb-sm block">PREMIUM AMENITIES</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">ENGINEERED FOR EXCELLENCE.</h2>
+</div>
+<div class="px-container-margin grid grid-cols-1 md:grid-cols-3 gap-xl">
+<div class="glass-panel p-xl rounded-xl border border-outline-variant/30 group hover:border-primary-fixed transition-all duration-500">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center mb-lg group-hover:bg-primary-container group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">mic</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-md">Podcast Studio</h3>
+<p class="font-body-md text-body-md text-on-secondary-container mb-lg">Professional-grade acoustic treatment and 4K recording equipment for seamless broadcasting.</p>
+<ul class="space-y-sm">
+<li class="flex items-center gap-sm font-label-caps text-[10px] text-on-surface-variant">
+<span class="w-1 h-1 bg-primary-fixed rounded-full"></span> 4X CONDENSER MICS
+                        </li>
+<li class="flex items-center gap-sm font-label-caps text-[10px] text-on-surface-variant">
+<span class="w-1 h-1 bg-primary-fixed rounded-full"></span> SOUNDPROOF SUITE
+                        </li>
+</ul>
+</div>
+<div class="glass-panel p-xl rounded-xl border border-outline-variant/30 group hover:border-primary-fixed transition-all duration-500">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center mb-lg group-hover:bg-primary-container group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">photo_camera</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-md">Photography Corner</h3>
+<p class="font-body-md text-body-md text-on-secondary-container mb-lg">A fully equipped studio for product shoots and executive portraits with professional lighting.</p>
+<ul class="space-y-sm">
+<li class="flex items-center gap-sm font-label-caps text-[10px] text-on-surface-variant">
+<span class="w-1 h-1 bg-primary-fixed rounded-full"></span> DUAL SOFTBOX LIGHTS
+                        </li>
+<li class="flex items-center gap-sm font-label-caps text-[10px] text-on-surface-variant">
+<span class="w-1 h-1 bg-primary-fixed rounded-full"></span> MULTI-COLOR BACKDROPS
+                        </li>
+</ul>
+</div>
+<div class="glass-panel p-xl rounded-xl border border-outline-variant/30 group hover:border-primary-fixed transition-all duration-500">
+<div class="w-12 h-12 rounded-lg bg-surface-container-highest flex items-center justify-center mb-lg group-hover:bg-primary-container group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-3xl">spa</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-md">Relaxation Area</h3>
+<p class="font-body-md text-body-md text-on-secondary-container mb-lg">Decompress in our bio-sensory zone featuring zero-gravity chairs and ambient soundscapes.</p>
+<ul class="space-y-sm">
+<li class="flex items-center gap-sm font-label-caps text-[10px] text-on-surface-variant">
+<span class="w-1 h-1 bg-primary-fixed rounded-full"></span> BIO-SENSORY PODS
+                        </li>
+<li class="flex items-center gap-sm font-label-caps text-[10px] text-on-surface-variant">
+<span class="w-1 h-1 bg-primary-fixed rounded-full"></span> OXYGEN BAR ACCESS
+                        </li>
+</ul>
+</div>
+</div>
+</section>
+<section class="py-xl overflow-hidden">
+<div class="px-container-margin mb-xl flex justify-between items-end">
+<div>
+<span class="font-label-caps text-label-caps text-primary-fixed tracking-[0.2em] mb-sm block">COMMUNITY CULTURE</span>
+<h2 class="font-headline-lg text-headline-lg text-primary">WHERE DISRUPTION CONNECTS.</h2>
+</div>
+<div class="flex gap-md">
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container transition-colors" id="scrollLeft">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center hover:bg-surface-container transition-colors" id="scrollRight">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="horizontal-scroll flex gap-xl px-container-margin overflow-x-auto snap-x scroll-smooth" id="cultureGallery">
+<div class="snap-start flex-shrink-0 w-[400px] group">
+<div class="aspect-[4/5] overflow-hidden rounded-xl mb-md">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A group of tech entrepreneurs and visionaries engaged in a startup mentoring session at Nexora Square. The setting is a cozy, dark-toned lounge with glowing green geometric light installations in the background. The participants are focused and collaborating over digital tablets." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAi378Qy8VX-mmoTtYoCCGpvFY0tUuubQHWcoHTbJjGsh_PyE3RRmXRTAlO0wvHjRZOf6613rKeU2_8Q1BFCFS6xEhikFqbk70oKsxEdJYS-hbhMQUl0nh9Zd-pZSqFFjfsZvdcE8xYMT42KIj-zCgjNkIhgk4UFsNFJp2hksquLaqdiJr8OnF0XDjCoxiz4_ShewHzlPt91lEBDuji9Nt8TaNm6qvE4SssOzJAmlPzxcbxALbi0VT6zW9-UqcIlgZ7an85C359kQtY"/>
+</div>
+<span class="font-label-caps text-label-caps text-primary-fixed mb-xs block">WEEKLY PROGRAM</span>
+<h4 class="font-headline-md text-headline-md text-primary mb-sm">Startup Mentoring</h4>
+<p class="font-body-md text-body-md text-on-secondary-container">One-on-one sessions with industry giants to scale your vision from MVP to Series A.</p>
+</div>
+<div class="snap-start flex-shrink-0 w-[400px] group">
+<div class="aspect-[4/5] overflow-hidden rounded-xl mb-md">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A professional investor meetup event at Nexora Square, showing a keynote speaker in a sharp black suit presenting on a large screen to a focused audience of professionals. The room is dark with high-contrast green lighting and atmospheric glass partitions. Premium and exclusive atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFfYsqRvO_8O116jp4ni6JAQ-nyEoRHQfkEgvqkW8HVvui_d6Aba8LMptqu9inwDPYFnTskAfqYbSynqdB3GoIPzzWoPQcNYdOa9sxoaWOgrs3ZSfoLKbZwqhGCWLwphXe-iONYyxD1U8m7yAOkURdpZYN9Dzx22QIDGXdWGNOfIeFNwuUlMSRT-FO3giobqJYjkKV66ZCzPzY0v5Swt4PknQE1nUZV2jBDuU0hRKxGdXGxkwcPZS5jDgF_kpeZQebaQ4_IxWZcPLE"/>
+</div>
+<span class="font-label-caps text-label-caps text-primary-fixed mb-xs block">EXCLUSIVE EVENT</span>
+<h4 class="font-headline-md text-headline-md text-primary mb-sm">Investor Meetups</h4>
+<p class="font-body-md text-body-md text-on-secondary-container">Pitch to top-tier VCs and angel investors in a curated, high-stakes environment.</p>
+</div>
+<div class="snap-start flex-shrink-0 w-[400px] group">
+<div class="aspect-[4/5] overflow-hidden rounded-xl mb-md">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A networking event at Nexora Square's rooftop lounge, with people dressed in sleek modern attire socializing under a canopy of light. The background shows a futuristic city skyline at night with neon lights reflecting on glass surfaces. The mood is vibrant, upscale, and social." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvL1hZheBvLjAUDcKhtkY0BYMsQnCH4IEbelaPTB9KzLxW03aJhBskJH7HSLpya5SvIu_BLVQL3rglI-P_H1qhLdtwCgLLuCMrGmeC_XhYWepyqpkS-n0v-yEd8pPF358je0NAfog2S-NIP9pfL2PtXtfkCam8i-chiyPegdUVEi7CF-XS56eR_rrrxE0-X55vKc0Y-x6dcXFz4q_sJ50d74N5s7c0xZhvJT38_vBAq7-YrE6u0wvgUejOHFs9nXoDtWdLpexqr8pT"/>
+</div>
+<span class="font-label-caps text-label-caps text-primary-fixed mb-xs block">NETWORKING</span>
+<h4 class="font-headline-md text-headline-md text-primary mb-sm">Networking Events</h4>
+<p class="font-body-md text-body-md text-on-secondary-container">After-hours mixers designed to spark serendipitous connections between founders.</p>
+</div>
+<div class="snap-start flex-shrink-0 w-[400px] group">
+<div class="aspect-[4/5] overflow-hidden rounded-xl mb-md">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A specialized workshop focusing on AI and future technology held in a minimalist, high-tech lab at Nexora Square. Students and developers are working on sleek laptops with green glowing code visible on screens. The lighting is cold and clinical yet sophisticated." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDaPvtLVXKgm0Krm-Dw-T3JsOP0-RCBWSIUsSERnBBXKXbNhOuZpVxleDREaNJcxuN-GmaQA4FwmNPptSC8fhbCZM1sjIvogc6xGG_bfNNwDm3lJxYR_97CDP2e3Wdr4DWC7eeFkBX_A_EMYWS2_pMygVlokHAiq_Qy8BCJsEdaKQgLJc8TCP93XSWJgtJ2b7Qq4cgj4DIzBr7Y0sD7UQiebG1lkqcIBq_ENeakwaVuMF4yABM_f6E-UW5S6o0iF51k_ywfgp7NOtPx"/>
+</div>
+<span class="font-label-caps text-label-caps text-primary-fixed mb-xs block">SKILL BUILDING</span>
+<h4 class="font-headline-md text-headline-md text-primary mb-sm">Founder Workshops</h4>
+<p class="font-body-md text-body-md text-on-secondary-container">Deep-dive technical sessions on AI, blockchain, and architectural design systems.</p>
+</div>
+</div>
+</section>
+<section class="relative min-h-[819px] flex items-center justify-center overflow-hidden">
+
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background"></div>
+<div class="relative z-10 text-center px-container-margin">
+<h2 class="font-display-lg text-display-lg text-primary mb-xl max-w-4xl mx-auto">READY TO ELEVATE YOUR WORKSPACE?</h2>
+<div class="flex flex-col md:flex-row gap-lg justify-center">
+<button class="bg-primary-container text-on-primary-fixed px-xl py-lg font-headline-md text-headline-md rounded-DEFAULT neon-glow-hover transition-all duration-300 shadow-[0_0_20px_rgba(163,250,0,0.4)]">
+                        Book a Tour
+                    </button>
+<button class="border border-outline-variant text-primary px-xl py-lg font-headline-md text-headline-md rounded-DEFAULT hover:border-primary-fixed hover:text-primary-fixed transition-all duration-300 glass-panel">
+                        Explore Membership
+                    </button>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-surface-container-lowest dark:bg-surface-container-lowest full-width border-t border-outline-variant">
+<div class="grid grid-cols-2 md:grid-cols-6 gap-gutter px-container-margin py-xl w-full">
+<div class="col-span-2">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary mb-md">NEXORA SQUARE</div>
+<p class="text-on-secondary-container max-w-xs font-body-md">Architecting the future of work through high-precision environments and visionary community.</p>
+</div>
+<div>
+<h5 class="font-label-caps text-label-caps text-primary mb-md">COMPANY</h5>
+<ul class="space-y-sm text-on-secondary-container">
+<li><a class="hover:text-primary-fixed transition-colors" href="#">About Us</a></li>
+<li><a class="hover:text-primary-fixed transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-primary-fixed transition-colors" href="#">Press Kit</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-caps text-label-caps text-primary mb-md">WORKSPACES</h5>
+<ul class="space-y-sm text-on-secondary-container">
+<li><a class="hover:text-primary-fixed transition-colors" href="#">Private Offices</a></li>
+<li><a class="hover:text-primary-fixed transition-colors" href="#">Co-working</a></li>
+<li><a class="hover:text-primary-fixed transition-colors" href="#">Virtual Office</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-caps text-label-caps text-primary mb-md">SUPPORT</h5>
+<ul class="space-y-sm text-on-secondary-container">
+<li><a class="hover:text-primary-fixed transition-colors" href="#">FAQ</a></li>
+<li><a class="hover:text-primary-fixed transition-colors" href="#">Contact</a></li>
+<li><a class="hover:text-primary-fixed transition-colors" href="#">Privacy</a></li>
+</ul>
+</div>
+<div>
+<h5 class="font-label-caps text-label-caps text-primary mb-md">SOCIAL</h5>
+<div class="flex gap-sm">
+<a class="w-8 h-8 rounded-DEFAULT bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">share</span>
+</a>
+<a class="w-8 h-8 rounded-DEFAULT bg-surface-container flex items-center justify-center hover:bg-primary-container hover:text-on-primary transition-all" href="#">
+<span class="material-symbols-outlined text-sm">public</span>
+</a>
+</div>
+</div>
+</div>
+<div class="px-container-margin py-md border-t border-outline-variant/30 flex justify-between items-center bg-surface-container-low">
+<span class="font-label-caps text-[10px] text-on-secondary-container">© 2024 NEXORA SQUARE. ARCHITECTING THE FUTURE OF WORK.</span>
+<div class="flex gap-lg">
+<span class="font-label-caps text-[10px] text-on-secondary-container">TERMS</span>
+<span class="font-label-caps text-[10px] text-on-secondary-container">PRIVACY</span>
+</div>
+</div>
+</footer>
+<script>
+        const gallery = document.getElementById('cultureGallery');
+        const scrollRight = document.getElementById('scrollRight');
+        const scrollLeft = document.getElementById('scrollLeft');
+
+        scrollRight.addEventListener('click', () => {
+            gallery.scrollBy({ left: 450, behavior: 'smooth' });
+        });
+
+        scrollLeft.addEventListener('click', () => {
+            gallery.scrollBy({ left: -450, behavior: 'smooth' });
+        });
+
+        document.querySelectorAll('.glass-panel').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+    </script>
+</body></html>
