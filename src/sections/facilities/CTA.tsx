@@ -19,9 +19,14 @@ export function CTA() {
               Join the elite cohort of professionals at Nexora Square. Schedule a private walkthrough of our facilities today.
             </p>
             <div className="flex flex-col md:flex-row gap-6">
-              <button className="bg-black text-white px-10 py-5 rounded-full font-bold text-lg hover:scale-105 transition-all shadow-xl">
+              <a 
+                href="https://wa.me/918881888444" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="bg-black text-white px-10 py-5 rounded-full font-bold text-lg hover:scale-105 transition-all shadow-xl inline-block text-center"
+              >
                 Connect
-              </button>
+              </a>
             </div>
           </div>
         </div>

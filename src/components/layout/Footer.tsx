@@ -13,18 +13,24 @@ export function Footer() {
             Architectural Sanctuary for the high-performance professional. Your space, your focus, your growth.
           </p>
           <div className="flex gap-4">
-            <Link
+            <a
               className="w-10 h-10 glass-card flex items-center justify-center rounded-full hover:text-primary-fixed transition-colors"
-              href="#"
+              href="tel:+918881888444"
             >
-              <span className="material-symbols-outlined text-sm">language</span>
-            </Link>
-            <Link
+              <span className="material-symbols-outlined text-sm">call</span>
+            </a>
+            <a
               className="w-10 h-10 glass-card flex items-center justify-center rounded-full hover:text-primary-fixed transition-colors"
-              href="#"
+              href="https://www.instagram.com/nexorasquare?igsh=cXJtN2xyc2RvNmVk"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              <span className="material-symbols-outlined text-sm">public</span>
-            </Link>
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5">
+                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
+              </svg>
+            </a>
             <Link
               className="w-10 h-10 glass-card flex items-center justify-center rounded-full hover:text-primary-fixed transition-colors"
               href="#"
@@ -72,7 +78,7 @@ export function Footer() {
           </p>
           <div className="mt-4">
             <div className="font-bold text-primary-fixed">Call Us</div>
-            <div className="text-primary font-body-lg">+91 9876 543 210</div>
+            <div className="text-primary font-body-lg">+91 88818 88444</div>
           </div>
         </div>
       </div>

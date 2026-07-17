@@ -1,4 +1,6 @@
 import { Content } from "@/sections/about/Content";
+import { FAQ } from "@/sections/about/FAQ";
+import { CTA } from "@/sections/facilities/CTA";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -10,6 +12,8 @@ export default function About() {
   return (
     <>
       <Content />
+      <FAQ />
+      <CTA />
     </>
   );
 }
