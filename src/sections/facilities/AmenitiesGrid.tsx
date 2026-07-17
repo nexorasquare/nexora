@@ -1,101 +1,134 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { Reveal } from "@/components/ui/Reveal";
+import Image from "next/image";
+
+const amenities = [
+  {
+    category: "Workspace Options",
+    image: "/images/amenities/workspace_options.png",
+    items: ["Private cabins (1–6 people)", "Dedicated workstations", "Flexible (hot) desks", "4-seater team cabins", "Executive office suites", "Shared open workspace"],
+  },
+  {
+    category: "Meeting & Collaboration",
+    image: "https://images.unsplash.com/photo-1573164713988-8665fc963095?auto=format&fit=crop&q=80&w=1600",
+    items: ["Conference hall (8-10 people)", "Telebooths & Phone booths", "Interview room"],
+  },
+  {
+    category: "Business Amenities",
+    image: "https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&q=80&w=1600",
+    items: ["High-speed Wi-Fi", "Printing & photocopying", "Reception and front desk", "Mail handling", "Lockers & Storage cabinets"],
+  },
+  {
+    category: "Comfort & Productivity",
+    image: "https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&q=80&w=1600",
+    items: ["Coffee station", "Café area", "Lounge & networking area", "Air conditioning", "Charging stations"],
+  },
+  {
+    category: "Technology",
+    image: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&q=80&w=1600",
+    items: ["Smart TVs & projectors", "Video conferencing equipment", "Digital booking system", "RFID Access control", "CCTV security", "Power backup"],
+  },
+  {
+    category: "Community & Networking",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1600",
+    items: ["Networking events", "Workshops and training", "Startup mentoring", "Investor meetups"],
+  },
+  {
+    category: "Wellness",
+    image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&q=80&w=1600",
+    items: ["Quiet zone", "Prayer room", "Wellness room", "Indoor plants", "Natural lighting"],
+  },
+  {
+    category: "Additional Services",
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=1600",
+    items: ["Virtual office packages", "Company registration", "GST & accounting support", "Legal consultation", "Digital marketing"],
+  },
+  {
+    category: "Premium Features",
+    image: "https://images.unsplash.com/photo-1598257006458-087169a1f08d?auto=format&fit=crop&q=80&w=1600",
+    items: ["Podcast studio", "Photography corner", "Library zone", "Relaxation area"],
+  },
+];
 
 export function AmenitiesGrid() {
-  const amenities = [
-    {
-      category: "Workspace Options",
-      icon: "corporate_fare",
-      items: ["Private cabins (1–6 people)", "Dedicated workstations", "Flexible (hot) desks", "4-seater team cabins", "Executive office suites", "Shared open workspace"],
-    },
-    {
-      category: "Meeting & Collaboration",
-      icon: "groups",
-      items: ["Conference hall (8-10 people)", "Telebooths / Phone booths (soundproof)", "Interview room"],
-    },
-    {
-      category: "Business Amenities",
-      icon: "business_center",
-      items: ["High-speed Wi-Fi", "Printing, scanning & photocopying", "Reception and front desk", "Business address & mail handling", "Courier/package receiving", "Lockers", "Storage cabinets"],
-    },
-    {
-      category: "Comfort & Productivity",
-      icon: "coffee",
-      items: ["Pantry / Coffee station", "Café or snack area", "Lounge & networking area", "Air conditioning", "Drinking water", "Charging station"],
-    },
-    {
-      category: "Technology",
-      icon: "devices",
-      items: ["Smart TVs/projectors", "Video conferencing equipment", "Digital booking system for meeting rooms", "Access control with RFID/card/QR", "CCTV security", "Power backup (UPS/Inverter/Generator)"],
-    },
-    {
-      category: "Community & Networking",
-      icon: "forum",
-      items: ["Networking events", "Workshops and training sessions", "Startup mentoring sessions", "Investor meetups"],
-    },
-    {
-      category: "Wellness",
-      icon: "self_improvement",
-      items: ["Quiet zone", "Prayer/Meditation room", "Wellness room", "Indoor plants", "Natural lighting"],
-    },
-    {
-      category: "Additional Services",
-      icon: "support_agent",
-      items: ["Virtual office packages", "Company registration assistance", "GST and accounting support", "Legal consultation", "HR and recruitment assistance", "Digital marketing support"],
-    },
-    {
-      category: "Premium Features",
-      icon: "star",
-      items: ["Podcast/Content creation studio", "Photography corner", "Library/Reading zone", "Gaming/Relaxation area"],
-    },
-  ];
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeTab = amenities[activeIndex];
 
   return (
-    <section className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-section-padding">
-      <Reveal>
-        <div className="text-center mb-16">
-          <div className="font-label-sm text-label-sm text-primary-fixed mb-4 uppercase tracking-[0.2em] inline-flex items-center gap-2">
-            <span className="w-8 h-[1px] bg-primary-fixed"></span>
-            All Inclusive
-            <span className="w-8 h-[1px] bg-primary-fixed"></span>
+    <section className="py-24 md:py-36 bg-surface px-margin-mobile md:px-margin-desktop border-y border-white/5">
+      <div className="max-w-container-max mx-auto">
+        <Reveal>
+          <div className="mb-16 md:mb-24">
+            <h2 className="font-display-md text-4xl md:text-5xl lg:text-6xl text-primary font-light tracking-tighter">
+              Everything You Need <br className="hidden md:block" />
+              <span className="text-primary-fixed">to Succeed _</span>
+            </h2>
           </div>
-          <h2 className="font-headline-lg text-3xl md:text-4xl text-white mb-4">Everything You Need to Succeed</h2>
-          <p className="font-body-md text-secondary max-w-2xl mx-auto">
-            We've anticipated every requirement for modern professionals. From essential business infrastructure to wellness spaces, it's all here.
-          </p>
-        </div>
-      </Reveal>
+        </Reveal>
 
-      <div className="relative">
-        {/* Ambient background glow */}
-        <div className="absolute inset-0 bg-primary-fixed/5 blur-[100px] rounded-full pointer-events-none -z-10"></div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {amenities.map((group, index) => (
-            <Reveal delay={index * 50} key={index}>
-              <div className="glass-panel p-8 rounded-[2rem] h-full flex flex-col border border-white/5 hover:border-primary-fixed/40 hover:-translate-y-2 hover:shadow-[0_0_40px_rgba(163,250,0,0.1)] hover:bg-gradient-to-b hover:from-white/10 hover:to-white/0 transition-all duration-500 group relative overflow-hidden">
-                {/* Subtle top highlight on hover */}
-                <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-primary-fixed/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
+          
+          {/* Left Sidebar Navigation */}
+          <div className="lg:col-span-4 flex flex-col gap-0 border-l border-white/10">
+            {amenities.map((group, index) => {
+              const isActive = index === activeIndex;
+              return (
+                <button
+                  key={index}
+                  onClick={() => setActiveIndex(index)}
+                  className={`text-left px-8 py-6 transition-all duration-500 border-l-2 relative -ml-[1px]
+                    ${isActive 
+                      ? "border-primary-fixed text-primary-fixed bg-primary-fixed/5" 
+                      : "border-transparent text-secondary hover:text-primary hover:bg-white/5"
+                    }
+                  `}
+                >
+                  <span className={`font-display-sm text-xl md:text-2xl font-light tracking-wide ${isActive ? "" : ""}`}>
+                    {group.category}
+                  </span>
+                </button>
+              );
+            })}
+          </div>
 
-                <div className="flex items-center gap-5 mb-8">
-                  <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center group-hover:scale-110 group-hover:bg-primary-fixed/20 group-hover:shadow-[0_0_20px_rgba(163,250,0,0.2)] transition-all duration-500">
-                    <span className="material-symbols-outlined text-3xl text-secondary group-hover:text-primary-fixed transition-colors duration-500">{group.icon}</span>
-                  </div>
-                  <h3 className="font-headline-md text-xl text-white tracking-wide">{group.category}</h3>
-                </div>
-                <ul className="space-y-4 flex-1">
-                  {group.items.map((item, idx) => (
-                    <li key={idx} className="flex items-start gap-3 text-secondary text-sm group/item cursor-default">
-                      <span className="material-symbols-outlined text-primary-fixed/50 text-lg mt-0.5 group-hover/item:text-primary-fixed group-hover/item:scale-110 transition-all duration-300">check_circle</span>
-                      <span className="leading-relaxed font-body-md group-hover/item:text-white group-hover/item:translate-x-1 transition-all duration-300">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
-          ))}
+          {/* Right Content Area */}
+          <div className="lg:col-span-8 flex flex-col overflow-hidden">
+            {/* The Image */}
+            <div className="relative w-full aspect-[16/9] lg:aspect-[2/1] overflow-hidden rounded-3xl mb-12 bg-surface-container-lowest border border-white/10">
+              <Image 
+                key={activeTab.image} // Force re-render/animation on image change
+                src={activeTab.image}
+                alt={activeTab.category}
+                fill
+                className="object-cover animate-in fade-in zoom-in-105 duration-1000 ease-out"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            </div>
+
+            {/* Title and List */}
+            <div 
+              key={activeTab.category} 
+              className="animate-in fade-in slide-in-from-bottom-8 duration-700 ease-out"
+            >
+              <h3 className="font-display-md text-3xl md:text-4xl text-primary font-light mb-8">
+                {activeTab.category}
+              </h3>
+              
+              <div className="w-full h-[1px] bg-white/10 mb-8"></div>
+              
+              <ul className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-12">
+                {activeTab.items.map((item, idx) => (
+                  <li key={idx} className="flex items-center text-secondary">
+                    <span className="w-2 h-2 rounded-full bg-primary-fixed/50 mr-4"></span>
+                    <span className="font-body-sm text-sm md:text-base tracking-wide font-light">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
