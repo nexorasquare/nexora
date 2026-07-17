@@ -1,11 +1,23 @@
+"use client";
+
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 export function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
+  };
+
   return (
     <nav className="fixed top-0 w-full bg-secondary/40 backdrop-blur-xl border-b border-white/10 shadow-2xl z-50 transition-all duration-300">
-      <div className="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-base max-w-container-max mx-auto">
-        <Link href="/" className="font-headline-md text-headline-md font-bold text-primary tracking-tight">
+      <div className="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-base max-w-container-max mx-auto relative z-50">
+        <Link href="/" onClick={closeMenu} className="font-headline-md text-headline-md font-bold text-primary tracking-tight">
           Nexora Square
         </Link>
         <div className="hidden md:flex gap-gutter items-center space-x-12">
@@ -32,8 +44,40 @@ export function Navbar() {
             Book Now
           </button>
         </div>
-        <button className="md:hidden text-primary">
-          <span className="material-symbols-outlined">menu</span>
+        <button onClick={toggleMenu} className="md:hidden text-primary">
+          <span className="material-symbols-outlined">{isOpen ? "close" : "menu"}</span>
+        </button>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <div
+        className={`fixed inset-0 bg-black/95 backdrop-blur-3xl z-40 flex flex-col items-center justify-center space-y-8 transition-all duration-500 md:hidden ${
+          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        }`}
+      >
+        <Link
+          onClick={closeMenu}
+          className="text-primary text-3xl font-bold tracking-wider hover:text-primary-fixed transition-colors"
+          href="/"
+        >
+          Home
+        </Link>
+        <Link
+          onClick={closeMenu}
+          className="text-primary text-3xl font-bold tracking-wider hover:text-primary-fixed transition-colors"
+          href="/facilities"
+        >
+          Workspaces
+        </Link>
+        <Link
+          onClick={closeMenu}
+          className="text-primary text-3xl font-bold tracking-wider hover:text-primary-fixed transition-colors"
+          href="/about"
+        >
+          About
+        </Link>
+        <button className="mt-8 px-10 py-4 bg-primary-fixed text-on-primary-fixed font-bold rounded-full hover:scale-105 active:scale-95 transition-all duration-300 neon-button-glow text-xl">
+          Book Now
         </button>
       </div>
     </nav>
