@@ -3,64 +3,72 @@
 import React from "react";
 import { Reveal } from "@/components/ui/Reveal";
 
+const highlights = [
+  { value: "100+", label: "Growing Community" },
+  { value: "24/7", label: "Secure Access" },
+  { value: "Prime", label: "Business Location" },
+  { value: "Flexible", label: "Workspace Solutions" },
+  { value: "Business", label: "Networking" },
+  { value: "Modern", label: "Premium Interiors" },
+];
+
 export function Content() {
   return (
-    <section className="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto mb-section-padding mt-32 relative">
-      {/* Background Glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary-fixed/5 blur-[120px] rounded-full pointer-events-none -z-10"></div>
-      
-      <Reveal>
-        <div className="text-center mb-16">
-          <div className="font-label-sm text-label-sm text-primary-fixed mb-4 uppercase tracking-[0.2em] inline-flex items-center gap-2">
-            <span className="w-8 h-[1px] bg-primary-fixed"></span>
-            About Us
-            <span className="w-8 h-[1px] bg-primary-fixed"></span>
-          </div>
-          <h1 className="font-headline-lg text-4xl md:text-6xl text-primary mb-6 leading-tight max-w-4xl mx-auto">
-            Premium Coworking Space in Perinthalmanna
-          </h1>
-          <p className="font-body-lg text-secondary max-w-2xl mx-auto">
-            For Startups, Freelancers & Businesses
-          </p>
+    <section className="py-12 md:py-36 bg-surface-container-lowest border-y border-white/5 overflow-hidden mt-20 md:mt-32">
+      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 lg:gap-24 items-start">
+        
+        {/* Left Side: Premium Image */}
+        <div className="lg:col-span-5 relative group h-[250px] md:min-h-[500px] lg:min-h-[800px] rounded-3xl overflow-hidden">
+          <Reveal className="w-full h-full absolute inset-0">
+            {/* Ambient Glow */}
+            <div className="absolute -inset-4 bg-primary-fixed/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-0 hidden md:block"></div>
+            
+            <div className="absolute inset-0 rounded-3xl overflow-hidden border border-white/10 z-10">
+              {/* Pseudo-Parallax using scale and pan on hover */}
+              <img
+                className="w-full h-full object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-110 group-hover:translate-y-2 grayscale-[30%] group-hover:grayscale-0"
+                alt="Nexora Square Premium Workspace"
+                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+            </div>
+          </Reveal>
         </div>
-      </Reveal>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <Reveal delay={100}>
-          <div className="glass-panel p-10 rounded-[2rem] h-full hover:-translate-y-2 hover:bg-white/5 transition-all duration-500 group border border-white/5 hover:border-primary-fixed/30 hover:shadow-[0_0_40px_rgba(163,250,0,0.1)]">
-            <div className="w-16 h-16 rounded-2xl bg-primary-fixed/10 flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-primary-fixed/20 transition-all duration-500">
-              <span className="material-symbols-outlined text-3xl text-primary-fixed">rocket_launch</span>
+        {/* Right Side: Editorial Content */}
+        <div className="lg:col-span-7 flex flex-col pt-8 lg:pt-16">
+          <Reveal>
+            <div className="font-body-sm text-[10px] md:text-xs text-secondary mb-6 uppercase tracking-[0.3em] font-bold">
+              ABOUT NEXORA SQUARE
             </div>
-            <h3 className="text-xl font-bold text-white mb-4">Designed for Growth</h3>
-            <p className="text-secondary leading-relaxed font-body-md text-sm">
-              Looking for a modern coworking space in Perinthalmanna? Our strategically located workspace provides entrepreneurs, startups, freelancers, remote teams, and businesses with a professional environment designed for productivity and growth.
+            
+            <h2 className="font-display-lg text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-primary font-light mb-6 md:mb-8 tracking-tighter leading-tight">
+              More Than Just <br />
+              <span className="text-primary-fixed italic pr-4">A Workspace.</span>
+            </h2>
+            
+            <p className="font-body-lg text-base md:text-xl text-secondary mb-8 md:mb-16 leading-relaxed max-w-2xl font-light">
+              Nexora Square is a premium coworking destination in the heart of Perinthalmanna, thoughtfully designed for entrepreneurs, startups, freelancers, remote teams, and growing businesses. Every workspace combines contemporary design, advanced technology, and a vibrant professional community to help ideas thrive.
             </p>
-          </div>
-        </Reveal>
+          </Reveal>
 
-        <Reveal delay={200}>
-          <div className="glass-panel p-10 rounded-[2rem] h-full hover:-translate-y-2 hover:bg-white/5 transition-all duration-500 group border border-white/5 hover:border-primary-fixed/30 hover:shadow-[0_0_40px_rgba(163,250,0,0.1)]">
-            <div className="w-16 h-16 rounded-2xl bg-primary-fixed/10 flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-primary-fixed/20 transition-all duration-500">
-              <span className="material-symbols-outlined text-3xl text-primary-fixed">hub</span>
-            </div>
-            <h3 className="text-xl font-bold text-white mb-4">Prime Connectivity</h3>
-            <p className="text-secondary leading-relaxed font-body-md text-sm">
-              Located in the heart of Perinthalmanna, our coworking space offers excellent connectivity to major business areas, educational institutions, banks, restaurants, and essential services. We help businesses work efficiently while building valuable connections.
-            </p>
+          {/* Elegant Highlight Rows */}
+          <div className="flex flex-col w-full border-t border-white/10 mt-8">
+            {highlights.map((item, index) => (
+              <Reveal key={index} delay={index * 100}>
+                <div className="group flex flex-col md:flex-row items-start md:items-center md:justify-between gap-1 md:gap-4 py-6 md:py-8 border-b border-white/10 hover:border-primary-fixed/40 transition-colors duration-500 cursor-default">
+                  <span className="font-display-md text-3xl md:text-4xl lg:text-5xl font-light text-primary group-hover:text-primary-fixed transition-colors duration-500 tracking-tight">
+                    {item.value}
+                  </span>
+                  <span className="font-body-sm text-[10px] md:text-xs font-bold tracking-[0.25em] text-secondary uppercase text-left md:text-right">
+                    {item.label}
+                  </span>
+                </div>
+              </Reveal>
+            ))}
           </div>
-        </Reveal>
-
-        <Reveal delay={300}>
-          <div className="glass-panel p-10 rounded-[2rem] h-full hover:-translate-y-2 hover:bg-white/5 transition-all duration-500 group border border-white/5 hover:border-primary-fixed/30 hover:shadow-[0_0_40px_rgba(163,250,0,0.1)]">
-            <div className="w-16 h-16 rounded-2xl bg-primary-fixed/10 flex items-center justify-center mb-8 group-hover:scale-110 group-hover:bg-primary-fixed/20 transition-all duration-500">
-              <span className="material-symbols-outlined text-3xl text-primary-fixed">architecture</span>
-            </div>
-            <h3 className="text-xl font-bold text-white mb-4">Flexible Solutions</h3>
-            <p className="text-secondary leading-relaxed font-body-md text-sm">
-              Whether you are a startup looking for an inspiring office, a freelancer seeking a productive workspace, or an established business needing a flexible office solution, we provide the perfect combination of convenience, community, and modern workplace facilities.
-            </p>
-          </div>
-        </Reveal>
+          
+        </div>
       </div>
     </section>
   );
