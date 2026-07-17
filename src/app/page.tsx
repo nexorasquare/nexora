@@ -1,4 +1,8 @@
 import { Hero } from "@/sections/home/Hero";
+import { Marquee } from "@/components/ui/Marquee";
+import { WorkspaceTypes } from "@/sections/home/WorkspaceTypes";
+import { Features } from "@/sections/home/Features";
+import { About } from "@/sections/home/About";
 import { Stats } from "@/sections/home/Stats";
 import { Workspaces } from "@/sections/home/Workspaces";
 import { Connectivity } from "@/sections/home/Connectivity";
@@ -14,6 +18,8 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <Marquee />
+      <WorkspaceTypes />
       <Stats />
       <Workspaces />
       <Connectivity />
