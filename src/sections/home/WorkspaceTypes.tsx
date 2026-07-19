@@ -34,7 +34,7 @@ const workspaceTypes = [
 
 export function WorkspaceTypes() {
   return (
-    <section className="py-section-padding px-margin-mobile md:px-margin-desktop bg-secondary/20">
+    <section className="py-section-padding px-margin-mobile md:px-margin-desktop bg-background">
       <div className="max-w-container-max mx-auto">
         <Reveal>
           <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
