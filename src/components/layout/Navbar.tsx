@@ -61,8 +61,8 @@ export function Navbar() {
 
       {/* Mobile Menu Overlay */}
       <div
-        className={`fixed inset-0 bg-black/95 backdrop-blur-3xl z-40 flex flex-col items-center justify-center space-y-8 transition-all duration-500 md:hidden ${
-          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        className={`fixed inset-0 pt-24 pb-10 bg-background/95 backdrop-blur-xl z-40 flex flex-col items-center justify-start space-y-8 overflow-y-auto transition-all duration-500 md:hidden ${
+          isOpen ? "opacity-100 pointer-events-auto translate-y-0" : "opacity-0 pointer-events-none -translate-y-4"
         }`}
       >
         {navLinks.map((link) => {
