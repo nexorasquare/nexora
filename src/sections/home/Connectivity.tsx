@@ -76,14 +76,14 @@ export function Connectivity() {
     <section className="py-24 md:py-36 bg-surface px-margin-mobile md:px-margin-desktop border-b border-white/5">
       <div className="max-w-container-max mx-auto">
         <Reveal>
-          <div className="mb-12 md:mb-24 flex flex-row items-center justify-between gap-4">
-            <h2 className="font-display-md text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-primary font-light tracking-tighter flex-1">
+          <div className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
+            <h2 className="font-display-md text-4xl md:text-5xl lg:text-6xl text-primary font-light tracking-tighter">
               Prime Location <span className="text-primary-fixed">_</span>
             </h2>
             
-            {/* Carousel Controls */}
-            <div className="flex items-center gap-3 md:gap-6 shrink-0">
-              <span className="hidden sm:block font-body-sm text-secondary uppercase tracking-[0.2em] text-[10px] md:text-xs font-bold">
+            {/* Desktop Carousel Controls */}
+            <div className="hidden md:flex items-center gap-6">
+              <span className="font-body-sm text-secondary uppercase tracking-[0.2em] text-xs font-bold">
                 {currentIndex + 1} / {slides.length}
               </span>
               <div className="flex items-center gap-2">
@@ -139,13 +139,36 @@ export function Connectivity() {
             >
               {slides.map((slide, index) => (
                 <div key={index} className="w-full flex-shrink-0 px-2">
-                  <div className="flex items-center gap-4 border-b border-white/10 pb-8 mb-8">
-                    <span className="material-symbols-outlined text-3xl text-secondary">
-                      {slide.icon}
-                    </span>
-                    <h3 className="font-display-md text-3xl text-primary font-light">
-                      {slide.category}
-                    </h3>
+                  <div className="flex items-center justify-between border-b border-white/10 pb-8 mb-8">
+                    <div className="flex items-center gap-4">
+                      <span className="material-symbols-outlined text-3xl text-secondary">
+                        {slide.icon}
+                      </span>
+                      <h3 className="font-display-md text-3xl text-primary font-light">
+                        {slide.category}
+                      </h3>
+                    </div>
+                    
+                    {/* Mobile Carousel Controls */}
+                    <div className="flex md:hidden items-center gap-3">
+                      <span className="font-body-sm text-secondary uppercase tracking-[0.2em] text-[10px] font-bold">
+                        {currentIndex + 1} / {slides.length}
+                      </span>
+                      <div className="flex items-center gap-1">
+                        <button 
+                          onClick={prevSlide}
+                          className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-primary active:border-primary-fixed active:text-primary-fixed transition-colors duration-300"
+                        >
+                          <span className="material-symbols-outlined text-sm">west</span>
+                        </button>
+                        <button 
+                          onClick={nextSlide}
+                          className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-primary active:border-primary-fixed active:text-primary-fixed transition-colors duration-300"
+                        >
+                          <span className="material-symbols-outlined text-sm">east</span>
+                        </button>
+                      </div>
+                    </div>
                   </div>
                   
                   <div className="flex flex-col">
