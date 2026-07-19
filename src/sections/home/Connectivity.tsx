@@ -139,35 +139,30 @@ export function Connectivity() {
             >
               {slides.map((slide, index) => (
                 <div key={index} className="w-full flex-shrink-0 px-2">
-                  <div className="flex items-center justify-between border-b border-white/10 pb-8 mb-8">
-                    <div className="flex items-center gap-4">
-                      <span className="material-symbols-outlined text-3xl text-secondary">
+                  <div className="flex items-center justify-between border-b border-white/10 pb-6 mb-6">
+                    <div className="flex items-center gap-3">
+                      <span className="material-symbols-outlined text-2xl text-secondary">
                         {slide.icon}
                       </span>
-                      <h3 className="font-display-md text-3xl text-primary font-light">
+                      <h3 className="font-display-md text-2xl md:text-3xl text-primary font-light truncate max-w-[150px] sm:max-w-none">
                         {slide.category}
                       </h3>
                     </div>
                     
                     {/* Mobile Carousel Controls */}
-                    <div className="flex md:hidden items-center gap-3">
-                      <span className="font-body-sm text-secondary uppercase tracking-[0.2em] text-[10px] font-bold">
-                        {currentIndex + 1} / {slides.length}
-                      </span>
-                      <div className="flex items-center gap-1">
-                        <button 
-                          onClick={prevSlide}
-                          className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-primary active:border-primary-fixed active:text-primary-fixed transition-colors duration-300"
-                        >
-                          <span className="material-symbols-outlined text-sm">west</span>
-                        </button>
-                        <button 
-                          onClick={nextSlide}
-                          className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-primary active:border-primary-fixed active:text-primary-fixed transition-colors duration-300"
-                        >
-                          <span className="material-symbols-outlined text-sm">east</span>
-                        </button>
-                      </div>
+                    <div className="flex md:hidden items-center gap-2">
+                      <button 
+                        onClick={prevSlide}
+                        className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-primary active:border-primary-fixed active:text-primary-fixed transition-colors duration-300 flex-shrink-0"
+                      >
+                        <span className="material-symbols-outlined text-sm">west</span>
+                      </button>
+                      <button 
+                        onClick={nextSlide}
+                        className="w-10 h-10 rounded-full border border-white/10 flex items-center justify-center text-primary active:border-primary-fixed active:text-primary-fixed transition-colors duration-300 flex-shrink-0"
+                      >
+                        <span className="material-symbols-outlined text-sm">east</span>
+                      </button>
                     </div>
                   </div>
                   
