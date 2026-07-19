@@ -76,14 +76,14 @@ export function Connectivity() {
     <section className="py-24 md:py-36 bg-surface px-margin-mobile md:px-margin-desktop border-b border-white/5">
       <div className="max-w-container-max mx-auto">
         <Reveal>
-          <div className="mb-16 md:mb-24 flex flex-col md:flex-row md:items-end justify-between gap-8">
-            <h2 className="font-display-md text-4xl md:text-5xl lg:text-6xl text-primary font-light tracking-tighter">
+          <div className="mb-12 md:mb-24 flex flex-row items-center justify-between gap-4">
+            <h2 className="font-display-md text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-primary font-light tracking-tighter flex-1">
               Prime Location <span className="text-primary-fixed">_</span>
             </h2>
             
             {/* Carousel Controls */}
-            <div className="flex items-center gap-6">
-              <span className="font-body-sm text-secondary uppercase tracking-[0.2em] text-xs font-bold">
+            <div className="flex items-center gap-3 md:gap-6 shrink-0">
+              <span className="hidden sm:block font-body-sm text-secondary uppercase tracking-[0.2em] text-[10px] md:text-xs font-bold">
                 {currentIndex + 1} / {slides.length}
               </span>
               <div className="flex items-center gap-2">
