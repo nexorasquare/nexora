@@ -25,7 +25,7 @@ export function Navbar() {
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-secondary/40 backdrop-blur-xl border-b border-white/10 shadow-2xl z-50 transition-all duration-300">
+    <nav className="fixed top-0 w-full bg-background border-b border-white/10 shadow-2xl z-50 transition-all duration-300">
       <div className="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-base max-w-container-max mx-auto relative z-50">
         <Link href="/" onClick={closeMenu} className="font-headline-md text-headline-md font-bold text-primary tracking-tight">
           Nexora Square
