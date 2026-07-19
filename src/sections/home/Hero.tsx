@@ -55,7 +55,9 @@ export function Hero() {
           <div className="flex justify-center">
             <a
               className="px-8 py-4 bg-primary-fixed text-on-primary-fixed font-bold rounded-xl flex items-center justify-center gap-2 neon-button-glow hover:scale-105 transition-all duration-300"
-              href="#"
+              href="https://wa.me/918881888444"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               Chat on WhatsApp
               <span className="material-symbols-outlined">chat</span>
