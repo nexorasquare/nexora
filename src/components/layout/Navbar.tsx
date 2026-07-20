@@ -30,7 +30,7 @@ export function Navbar() {
       <div className="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-base max-w-container-max mx-auto relative z-50">
         <Link href="/" onClick={closeMenu} className="relative w-32 h-10 md:w-40 md:h-12 flex items-center">
           <Image 
-            src="/images/logo.png" 
+            src="/images/logo-transparent-v2.png" 
             alt="Nexora Square" 
             fill 
             sizes="(max-width: 768px) 128px, 160px"
