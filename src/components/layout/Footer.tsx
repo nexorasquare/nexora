@@ -7,7 +7,7 @@ export function Footer() {
     <footer className="bg-surface-container-lowest border-t border-white/5 py-section-padding">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
         <div className="col-span-1 md:col-span-1">
-          <div className="relative w-32 h-10 md:w-40 md:h-12 flex items-center mb-6 mix-blend-screen">
+          <div className="relative w-32 h-10 md:w-40 md:h-12 flex items-center mb-6">
             <Image 
               src="/images/logo.png" 
               alt="Nexora Square" 
