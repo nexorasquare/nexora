@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 
 export function Footer() {
@@ -6,8 +7,13 @@ export function Footer() {
     <footer className="bg-surface-container-lowest border-t border-white/5 py-section-padding">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
         <div className="col-span-1 md:col-span-1">
-          <div className="font-headline-md text-headline-md font-extrabold text-primary mb-6">
-            Nexora Square
+          <div className="relative w-32 h-10 md:w-40 md:h-12 flex items-center mb-6">
+            <Image 
+              src="/images/logo.png" 
+              alt="Nexora Square" 
+              fill 
+              className="object-contain object-left"
+            />
           </div>
           <p className="text-on-surface-variant font-body-md mb-8">
             Architectural Sanctuary for the high-performance professional. Your space, your focus, your growth.
