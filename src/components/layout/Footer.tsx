@@ -12,7 +12,7 @@ export function Footer() {
               src="/images/logo.png" 
               alt="Nexora Square" 
               fill 
-              className="object-contain object-left"
+              className="object-contain object-left mix-blend-screen"
             />
           </div>
           <p className="text-on-surface-variant font-body-md mb-8">
