@@ -33,6 +33,7 @@ export function Navbar() {
             src="/images/logo.png" 
             alt="Nexora Square" 
             fill 
+            sizes="(max-width: 768px) 128px, 160px"
             className="object-contain object-left mix-blend-screen"
             priority
           />
