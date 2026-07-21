@@ -38,12 +38,12 @@ export function Footer() {
                 <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/>
               </svg>
             </a>
-            <Link
+            <a
               className="w-10 h-10 glass-card flex items-center justify-center rounded-full hover:text-primary-fixed transition-colors"
-              href="#"
+              href="mailto:info@nexorasquare.com"
             >
               <span className="material-symbols-outlined text-sm">mail</span>
-            </Link>
+            </a>
           </div>
         </div>
         <div className="flex flex-col gap-4">
