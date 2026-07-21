@@ -75,9 +75,9 @@ export function HeroSection() {
           {/* Mobile Menu Toggle */}
           <button 
             onClick={() => setIsMobileMenuOpen(true)}
-            className="md:hidden text-white opacity-80 hover:opacity-100 p-2 relative z-[60]"
+            className="md:hidden absolute right-6 top-6 text-white opacity-90 p-2 z-[100]"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M3 12H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               <path d="M3 6H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               <path d="M3 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -92,10 +92,7 @@ export function HeroSection() {
           onClick={() => setIsMobileMenuOpen(false)}
           className="absolute top-6 right-6 text-white opacity-80 hover:opacity-100 p-2"
         >
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <path d="M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
+          <span className="material-symbols-outlined text-3xl">close</span>
         </button>
         <nav className="flex flex-col items-center gap-8">
           {['Home', 'About', 'Workspaces', 'Facilities', 'Contact'].map((item, i) => (
@@ -119,10 +116,9 @@ export function HeroSection() {
       </div>
 
       {/* Booking Modal */}
-      <BookingModal 
-        isOpen={isBookingOpen} 
-        onClose={() => setIsBookingOpen(false)} 
-      />
+      {isBookingOpen && (
+        <BookingModal onClose={() => setIsBookingOpen(false)} />
+      )}
 
       {/* 2. Asymmetric / Dynamic Typography (Bottom-Left bias) */}
       <div className="relative z-20 flex-1 flex flex-col justify-end px-6 sm:px-[10%] pb-[15vh]">
