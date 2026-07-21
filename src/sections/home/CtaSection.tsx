@@ -10,7 +10,7 @@ export function CtaSection() {
       <div className="max-w-5xl mx-auto w-full text-center flex flex-col items-center gap-8 sm:gap-10">
         
         <FadeIn delay={0} y={30}>
-          <h2 className="text-[#0C0C0C] font-black uppercase tracking-tight text-[clamp(3rem,8vw,6.5rem)] leading-none">
+          <h2 className="text-[#0C0C0C] font-black uppercase tracking-tight text-[clamp(2rem,8vw,6.5rem)] leading-none">
             Your Next Workspace<br />Starts Here
           </h2>
         </FadeIn>
