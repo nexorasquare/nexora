@@ -119,9 +119,10 @@ export function HeroSection() {
       </div>
 
       {/* Booking Modal */}
-      {isBookingOpen && (
-        <BookingModal onClose={() => setIsBookingOpen(false)} />
-      )}
+      <BookingModal 
+        isOpen={isBookingOpen} 
+        onClose={() => setIsBookingOpen(false)} 
+      />
 
       {/* 2. Asymmetric / Dynamic Typography (Bottom-Left bias) */}
       <div className="relative z-20 flex-1 flex flex-col justify-end px-6 sm:px-[10%] pb-[15vh]">
