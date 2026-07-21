@@ -1,11 +1,15 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Magnet } from "@/components/ui/Magnet";
+import { BookingModal } from "@/components/ui/BookingModal";
 
 export function HeroSection() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+
   return (
     <section className="relative h-screen w-full flex flex-col overflow-hidden bg-[#0C0C0C]">
       
@@ -33,6 +37,91 @@ export function HeroSection() {
         <div className="absolute top-[15%] left-0 right-0 h-[1px] bg-white opacity-[0.05]"></div>
         <div className="absolute bottom-[15%] left-0 right-0 h-[1px] bg-white opacity-[0.05]"></div>
       </div>
+
+      {/* 3. Architectural Top Header */}
+      <div className="absolute top-0 left-0 w-full z-50 px-6 sm:px-10 py-6">
+        <div className="border-b border-[rgba(255,255,255,0.08)] pb-6 flex justify-between items-center">
+          <FadeIn delay={0} y={-20}>
+            <div className="relative w-32 h-10">
+              <Image 
+                src="/images/logo-transparent-v2.webp" 
+                alt="Nexora Square Logo" 
+                fill 
+                className="object-contain object-left"
+              />
+            </div>
+          </FadeIn>
+          
+          <FadeIn delay={0.1} y={-20} className="hidden md:block">
+            <nav className="flex items-center gap-8">
+              {['Home', 'About', 'Workspaces', 'Facilities', 'Contact'].map((item, i) => (
+                <a 
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  onClick={(e) => {
+                    if (item === 'Contact') {
+                      e.preventDefault();
+                      setIsBookingOpen(true);
+                    }
+                  }}
+                  className="text-white opacity-60 hover:opacity-100 hover:text-[#99D508] font-medium uppercase tracking-[0.2em] text-[10px] transition-all duration-300 cursor-pointer"
+                >
+                  {item}
+                </a>
+              ))}
+            </nav>
+          </FadeIn>
+
+          {/* Mobile Menu Toggle */}
+          <button 
+            onClick={() => setIsMobileMenuOpen(true)}
+            className="md:hidden text-white opacity-80 hover:opacity-100 p-2 relative z-[60]"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 12H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M3 6H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              <path d="M3 18H21" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu Overlay */}
+      <div className={`fixed inset-0 bg-[#0C0C0C] z-[100] flex flex-col justify-center items-center transition-all duration-500 md:hidden ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+        <button 
+          onClick={() => setIsMobileMenuOpen(false)}
+          className="absolute top-6 right-6 text-white opacity-80 hover:opacity-100 p-2"
+        >
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+        <nav className="flex flex-col items-center gap-8">
+          {['Home', 'About', 'Workspaces', 'Facilities', 'Contact'].map((item, i) => (
+            <a 
+              key={item}
+              href={`#${item.toLowerCase()}`} 
+              onClick={(e) => {
+                setIsMobileMenuOpen(false);
+                if (item === 'Contact') {
+                  e.preventDefault();
+                  setIsBookingOpen(true);
+                }
+              }}
+              className="text-white hover:text-[#99D508] font-medium uppercase tracking-[0.3em] text-sm transition-all duration-300 block"
+              style={{ transform: isMobileMenuOpen ? 'translateY(0)' : 'translateY(20px)', opacity: isMobileMenuOpen ? 1 : 0, transitionDelay: `${i * 100}ms` }}
+            >
+              {item}
+            </a>
+          ))}
+        </nav>
+      </div>
+
+      {/* Booking Modal */}
+      {isBookingOpen && (
+        <BookingModal onClose={() => setIsBookingOpen(false)} />
+      )}
 
       {/* 2. Asymmetric / Dynamic Typography (Bottom-Left bias) */}
       <div className="relative z-20 flex-1 flex flex-col justify-end px-6 sm:px-[10%] pb-[15vh]">
