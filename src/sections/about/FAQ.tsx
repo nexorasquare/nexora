@@ -5,41 +5,42 @@ import { Reveal } from "@/components/ui/Reveal";
 
 const faqData = [
   {
-    question: "How Can I Book A Workspace At Nexora Square?",
+    question: "What are your operating hours?",
+    answer: "Our core team is available from 9 AM to 6 PM, Monday to Saturday. However, our Dedicated Desk and Private Cabin members have 24/7 access to the facility.",
+  },
+  {
+    question: "How can I book a workspace at Nexora Square?",
     answer: "Booking a workspace is simple! You can click the 'Book Now' button on our website, reach out to us via WhatsApp, or give us a call directly. Our team will guide you through the available options and confirm your booking instantly.",
   },
   {
-    question: "What Types Of Workspaces Are Available?",
-    answer: "We offer a variety of premium solutions tailored to your needs, including Private Cabins for teams, Dedicated Desks for permanent setups, and Hot Desks for flexible, daily access to our lounge areas.",
+    question: "Do you offer flexible lease terms?",
+    answer: "Yes, we offer daily, weekly, monthly, and yearly passes. We believe in providing solutions that scale with your business needs.",
   },
   {
-    question: "How Many People Can Nexora Square Accommodate?",
-    answer: "Our private executive cabins are designed to comfortably accommodate teams of 2 to 8 people. Additionally, our open-plan dedicated desks and hot desking areas can host a large number of independent professionals and freelancers simultaneously.",
+    question: "Are meeting rooms included in the membership?",
+    answer: "Meeting room credits are included in our Dedicated Desk and Private Cabin plans. Hot Desk members and non-members can book meeting rooms on an hourly basis.",
   },
   {
-    question: "What Makes Nexora Square Stand Out In Perinthalmanna?",
-    answer: "Nexora Square is designed as an architectural sanctuary for high-performance professionals. We offer unmatched premium infrastructure, including soundproofed cabins, ergonomic seating, high-speed dedicated LAN, and biophilic design elements—all strategically located in the heart of Perinthalmanna.",
-  },
+    question: "What makes Nexora Square stand out in Perinthalmanna?",
+    answer: "Nexora Square is designed as a premium sanctuary for high-performance professionals. We offer unmatched infrastructure, including soundproofed cabins, ergonomic seating, high-speed dedicated internet, and a prime location easily accessible from major hubs like Angadippuram and KIMS Al-Shifa.",
+  }
 ];
 
 export function FAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleFaq = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <section className="py-section-padding px-margin-mobile md:px-margin-desktop bg-surface-container-lowest">
-      <div className="max-w-3xl mx-auto">
+    <section className="py-24 md:py-32 bg-surface-container-lowest border-t border-white/5">
+      <div className="max-w-4xl mx-auto px-6 md:px-12">
         <Reveal>
           <div className="text-center mb-16">
-            <h2 className="font-headline-lg text-3xl md:text-4xl text-primary mb-4">
-              Frequently Asked Questions
+            <h2 className="text-4xl md:text-5xl text-primary font-light tracking-tight mb-4">
+              Frequently Asked <span className="text-primary-fixed">Questions</span>
             </h2>
-            <p className="text-on-surface-variant font-body-lg">
-              Find answers to common queries about our premium coworking spaces and amenities.
-            </p>
           </div>
         </Reveal>
 
@@ -49,25 +50,25 @@ export function FAQ() {
             return (
               <Reveal key={index} delay={index * 100}>
                 <div 
-                  className="border-b border-outline-variant overflow-hidden"
+                  className={`border transition-all duration-300 ${isOpen ? 'border-primary-fixed/50 bg-black/40' : 'border-white/10 bg-transparent'}`}
                 >
                   <button
                     onClick={() => toggleFaq(index)}
-                    className="w-full flex justify-between items-center py-6 text-left group transition-colors focus:outline-none"
+                    className="w-full flex justify-between items-center p-6 md:px-8 text-left group transition-colors focus:outline-none"
                   >
-                    <span className="font-headline-md text-lg md:text-xl text-primary group-hover:text-primary-fixed transition-colors pr-8">
+                    <span className={`text-lg md:text-xl font-medium transition-colors pr-8 ${isOpen ? 'text-primary-fixed' : 'text-primary'}`}>
                       {faq.question}
                     </span>
-                    <span className="material-symbols-outlined text-primary-fixed flex-shrink-0 transition-transform duration-300">
-                      {isOpen ? "remove" : "add"}
+                    <span className={`material-symbols-outlined transition-transform duration-300 ${isOpen ? 'rotate-180 text-primary-fixed' : 'text-secondary'}`}>
+                      expand_more
                     </span>
                   </button>
                   <div 
-                    className={`transition-all duration-300 ease-in-out ${
-                      isOpen ? "max-h-96 opacity-100 pb-6" : "max-h-0 opacity-0"
+                    className={`overflow-hidden transition-all duration-500 ease-in-out px-6 md:px-8 ${
+                      isOpen ? "max-h-96 opacity-100 pb-8" : "max-h-0 opacity-0"
                     }`}
                   >
-                    <p className="text-on-surface-variant font-body-md leading-relaxed">
+                    <p className="text-secondary/80 font-light leading-relaxed">
                       {faq.answer}
                     </p>
                   </div>

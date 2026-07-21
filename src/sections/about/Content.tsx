@@ -14,61 +14,68 @@ const highlights = [
 
 export function Content() {
   return (
-    <section className="py-12 md:py-36 bg-surface-container-lowest border-y border-white/5 overflow-hidden mt-20 md:mt-32">
-      <div className="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-16 lg:gap-24 items-start">
+    <section className="py-24 md:py-32 bg-background relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 items-center">
         
-        {/* Left Side: Premium Image */}
-        <div className="lg:col-span-5 relative group h-[250px] md:min-h-[500px] lg:min-h-[800px] rounded-3xl overflow-hidden">
-          <Reveal className="w-full h-full absolute inset-0">
-            {/* Ambient Glow */}
-            <div className="absolute -inset-4 bg-primary-fixed/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000 z-0 hidden md:block"></div>
-            
-            <div className="absolute inset-0 rounded-3xl overflow-hidden border border-white/10 z-10">
-              {/* Pseudo-Parallax using scale and pan on hover */}
-              <img
-                className="w-full h-full object-cover transition-transform duration-[2000ms] ease-out group-hover:scale-110 group-hover:translate-y-2 grayscale-[30%] group-hover:grayscale-0"
-                alt="Nexora Square Premium Workspace"
-                src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1600"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-            </div>
-          </Reveal>
-        </div>
-
-        {/* Right Side: Editorial Content */}
-        <div className="lg:col-span-7 flex flex-col pt-8 lg:pt-16">
+        {/* Left Side: Editorial Content */}
+        <div className="pr-0 lg:pr-12">
           <Reveal>
-            <div className="font-body-sm text-[10px] md:text-xs text-secondary mb-6 uppercase tracking-[0.3em] font-bold">
-              ABOUT NEXORA SQUARE
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-[1px] bg-primary-fixed"></div>
+              <div className="text-primary-fixed text-sm uppercase tracking-[0.2em] font-semibold">
+                Our Story
+              </div>
             </div>
-            
-            <h2 className="font-display-lg text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-primary font-light mb-6 md:mb-8 tracking-tighter leading-tight">
-              More Than Just <br />
-              <span className="text-primary-fixed italic pr-4">A Workspace.</span>
-            </h2>
-            
-            <p className="font-body-lg text-base md:text-xl text-secondary mb-8 md:mb-16 leading-relaxed max-w-2xl font-light">
-              Nexora Square is a premium coworking destination in the heart of Perinthalmanna, thoughtfully designed for entrepreneurs, startups, freelancers, remote teams, and growing businesses. Every workspace combines contemporary design, advanced technology, and a vibrant professional community to help ideas thrive.
-            </p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl text-primary font-light mb-8 tracking-tight leading-[1.1]">
+              Redefining the <br/>
+              <span className="font-medium text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary-fixed">Workspace Experience.</span>
+            </h1>
+            <div className="space-y-6 text-secondary/80 font-light text-lg leading-relaxed mb-12">
+              <p>
+                Looking for a premium coworking space in Perinthalmanna? Nexora Square provides entrepreneurs, startups, freelancers, remote teams, and businesses with a professional environment designed for productivity and growth.
+              </p>
+              <p>
+                Strategically located near major transit and business hubs, we are easily accessible from Angadippuram Railway Station, KIMS Al-Shifa Hospital, Moulana Hospital, and key educational institutions. Our central location makes us the ideal choice for professionals traveling from Malappuram, Manjeri, Pattambi, or Shoranur.
+              </p>
+              <p>
+                Whether you need an inspiring private cabin, a dedicated desk, or a flexible shared workspace, Nexora Square provides the perfect combination of convenience, community, and modern workplace facilities.
+              </p>
+            </div>
           </Reveal>
 
           {/* Elegant Highlight Rows */}
-          <div className="flex flex-col w-full border-t border-white/10 mt-8">
-            {highlights.map((item, index) => (
+          <div className="flex flex-col w-full border-t border-white/5">
+            {highlights.slice(0, 3).map((item, index) => (
               <Reveal key={index} delay={index * 100}>
-                <div className="group flex flex-col md:flex-row items-start md:items-center md:justify-between gap-1 md:gap-4 py-6 md:py-8 border-b border-white/10 hover:border-primary-fixed/40 transition-colors duration-500 cursor-default">
-                  <span className="font-display-md text-3xl md:text-4xl lg:text-5xl font-light text-primary group-hover:text-primary-fixed transition-colors duration-500 tracking-tight">
+                <div className="group flex items-center justify-between py-6 border-b border-white/5 hover:border-primary-fixed/40 transition-colors duration-500 cursor-default">
+                  <span className="text-3xl md:text-4xl font-light text-primary group-hover:text-primary-fixed transition-colors duration-500 tracking-tight">
                     {item.value}
                   </span>
-                  <span className="font-body-sm text-[10px] md:text-xs font-bold tracking-[0.25em] text-secondary uppercase text-left md:text-right">
+                  <span className="text-xs font-bold tracking-[0.2em] text-secondary/60 uppercase text-right">
                     {item.label}
                   </span>
                 </div>
               </Reveal>
             ))}
           </div>
-          
         </div>
+
+        {/* Right Side: Premium Images */}
+        <Reveal>
+          <div className="relative">
+            <div className="absolute -inset-4 bg-primary-fixed/5 blur-3xl rounded-full"></div>
+            <div className="grid grid-cols-2 gap-4 relative z-10">
+              <img src="/images/executive-suite.webp" alt="Executive Workspace" className="w-full h-64 md:h-80 object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700 mt-12" />
+              <img src="/images/hero-slide-2.webp" alt="Modern Shared Office" className="w-full h-64 md:h-80 object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700" />
+            </div>
+            
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-black/80 backdrop-blur-md p-8 border border-white/10 z-20 text-center shadow-2xl">
+              <div className="text-4xl text-primary-fixed font-light mb-1">2026</div>
+              <div className="text-xs uppercase tracking-widest text-primary/60">Established</div>
+            </div>
+          </div>
+        </Reveal>
+        
       </div>
     </section>
   );

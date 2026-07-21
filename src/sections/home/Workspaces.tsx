@@ -4,109 +4,113 @@ import React from "react";
 import { Reveal } from "@/components/ui/Reveal";
 
 export function Workspaces() {
+  const workspaces = [
+    {
+      title: "Executive Suites",
+      desc: "Premium, fully furnished executive suites with soundproofing, ergonomic seating, and priority access to all amenities.",
+      img: "/images/executive-suite.webp",
+      features: ["Premium Furniture", "Priority Booking", "Private Access"],
+      exclusive: true
+    },
+    {
+      title: "Private Cabins",
+      desc: "Secure, enclosed spaces ideal for focused work and confidential meetings. Perfect for small teams and independent professionals.",
+      img: "/images/hero-slide-3.webp",
+      features: ["Sound Insulated", "Whiteboard", "Storage Lockers"]
+    },
+    {
+      title: "Team Cabins",
+      desc: "Spacious 4-seater and larger cabins designed to foster collaboration while maintaining your team's privacy.",
+      img: "/images/conference-hall.webp",
+      features: ["High-speed LAN", "Custom Layouts", "24/7 Access"]
+    },
+    {
+      title: "Dedicated Desks",
+      desc: "Your own permanent desk in our beautifully designed open-plan workspace. Leave your monitors and gear securely.",
+      img: "/images/hero-slide-2.webp",
+      features: ["Ergonomic Chair", "Lockable Pedestal", "Mail Handling"]
+    },
+    {
+      title: "Hot Desks",
+      desc: "Maximum flexibility for freelancers and digital nomads. Pick any available seat in our vibrant lounge or open areas.",
+      img: "/images/amenities/workspace_options.webp",
+      features: ["Flexible Seating", "Networking Events", "Cafe Access"]
+    },
+    {
+      title: "Shared Workspace",
+      desc: "A collaborative environment where you can connect with other founders and creators in a premium setting.",
+      img: "/images/hero-slide-1.webp",
+      features: ["Community Vibe", "Pantry Access", "Phone Booths"]
+    }
+  ];
+
   return (
-    <section className="py-section-padding px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-      <Reveal>
-        <div className="text-center mb-20">
-          <div className="font-label-sm text-label-sm text-primary-fixed mb-4 uppercase tracking-[0.2em]">
-            Flexible Solutions
-          </div>
-          <h2 className="font-headline-lg text-headline-lg text-primary">Choose Your Perfect Workspace</h2>
-        </div>
-      </Reveal>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-        {/* Private Cabin */}
-        <Reveal delay={100}>
-          <div className="group glass-panel rounded-3xl overflow-hidden flex flex-col h-full">
-            <div className="h-48 overflow-hidden relative">
-              <img
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                alt="Private Cabin"
-                src="/images/executive-suite.webp"
-              />
-              <div className="absolute top-4 right-4 px-3 py-1 bg-primary-fixed text-on-primary-fixed text-xs font-bold rounded-full">
-                MOST EXCLUSIVE
+    <section id="workspaces" className="py-24 md:py-32 bg-surface-container-lowest relative">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <Reveal>
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+            <div className="max-w-2xl">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="w-12 h-[1px] bg-primary-fixed"></div>
+                <div className="text-primary-fixed text-sm uppercase tracking-[0.2em] font-semibold">
+                  Workspace Solutions
+                </div>
               </div>
+              <h2 className="text-4xl md:text-5xl text-primary font-light tracking-tight leading-[1.2]">
+                Choose Your <br/>
+                <span className="font-medium">Perfect Environment.</span>
+              </h2>
             </div>
-            <div className="p-6 flex-1 flex flex-col">
-              <h3 className="font-headline-md text-2xl text-primary mb-2">Private Cabins</h3>
-              <p className="font-body-md text-sm text-secondary mb-4 line-clamp-3">
-                Executive-grade private offices for teams of 2 to 8. Complete with sound insulation and personalized access control.
-              </p>
-              <ul className="space-y-2 mb-6 text-on-surface-variant text-sm">
-                <li className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-sm">done</span> Dedicated storage lockers
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-sm">done</span> Company branding options
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-sm">done</span> Priority meeting room booking
-                </li>
-              </ul>
-            </div>
+            <a href="/facilities" className="hidden md:inline-flex items-center gap-2 text-primary-fixed hover:text-white transition-colors border-b border-primary-fixed/30 hover:border-white pb-1 font-medium tracking-wide">
+              View All Facilities <span className="material-symbols-outlined text-sm">arrow_forward</span>
+            </a>
           </div>
         </Reveal>
 
-        {/* Dedicated Desk */}
-        <Reveal delay={200}>
-          <div className="group glass-panel rounded-3xl overflow-hidden flex flex-col h-full">
-            <div className="h-48 overflow-hidden relative">
-              <img
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                alt="Dedicated Desk"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhK11DygiqQ9ZSCcRUIsXuBbacQlIzX1jKH_K9iXh24qu_izU1xhB-DZ_HmX7pOUYM07QwHoD3AwagVulJpkt5gt49gDrzlPWZDmDBRotZsRAIMk1Yglbul82H6KA7rMT-qKMHKBy4MiDJqDHippYv4vyXQB7Fijt3SpoouyjPdBsfVg7Di7LqAqyweV4MuVflD3bXPDxx47GWnFutmz21sRmVUeF6PoqWRtp0gpdIc-NPvDaXm1sVRw"
-              />
-            </div>
-            <div className="p-6 flex-1 flex flex-col">
-              <h3 className="font-headline-md text-2xl text-primary mb-2">Dedicated Desks</h3>
-              <p className="font-body-md text-sm text-secondary mb-4 line-clamp-3">
-                Your own permanent spot in our elite open-plan area. Perfect for freelancers and remote developers.
-              </p>
-              <ul className="space-y-2 mb-6 text-on-surface-variant text-sm">
-                <li className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-sm">done</span> Fixed ergonomic workstation
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-sm">done</span> High-speed dedicated LAN
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-sm">done</span> Personal mail handling
-                </li>
-              </ul>
-            </div>
-          </div>
-        </Reveal>
-
-        {/* Hot Desk */}
-        <Reveal delay={300}>
-          <div className="group glass-panel rounded-3xl overflow-hidden flex flex-col h-full">
-            <div className="h-48 overflow-hidden relative">
-              <img
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                alt="Hot Desk"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6jClTGImqRgO-om2gHOWbFoHcMKP7hEayh1y4RweEu-GWCYgR-K623e7xQN14cN9kGqi21FeU-tKcHRHlnh_rB3GvhrHsvq9zym4ut6gFCOVEyQP3Z9zN-yLgRDQDZ1FfeL32aC63SA86gfAeZzuR9nZcWZOUQdcAOSbtt-ZZF741-CC-GWj9JdycWB4R6Ob-oMYr6tQYSfPJ558yKa-rDm4Bj6vU2jZc67tB1y2p2lfxbLvHkknE3Q"
-              />
-            </div>
-            <div className="p-6 flex-1 flex flex-col">
-              <h3 className="font-headline-md text-2xl text-primary mb-2">Hot Desks</h3>
-              <p className="font-body-md text-sm text-secondary mb-4 line-clamp-3">
-                Maximum flexibility. Access our vibrant lounge areas and pick any available seat for the day.
-              </p>
-              <ul className="space-y-2 mb-6 text-on-surface-variant text-sm">
-                <li className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-sm">done</span> Access to all common areas
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-sm">done</span> Business hours access
-                </li>
-                <li className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-sm">done</span> Networking community events
-                </li>
-              </ul>
-            </div>
-          </div>
-        </Reveal>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {workspaces.map((workspace, idx) => (
+            <Reveal key={idx} delay={idx * 100}>
+              <div className="group relative bg-black/40 border border-white/10 overflow-hidden flex flex-col h-full hover:border-primary-fixed/50 transition-colors duration-500">
+                <div className="h-56 overflow-hidden relative">
+                  <img
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out grayscale-[0.2] group-hover:grayscale-0"
+                    alt={workspace.title}
+                    src={workspace.img}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                  {workspace.exclusive && (
+                    <div className="absolute top-4 right-4 px-3 py-1 bg-primary-fixed text-black text-[10px] uppercase tracking-widest font-bold">
+                      Premium
+                    </div>
+                  )}
+                  <h3 className="absolute bottom-4 left-6 text-2xl text-primary font-medium">{workspace.title}</h3>
+                </div>
+                <div className="p-6 flex-1 flex flex-col">
+                  <p className="text-secondary/80 font-light text-sm leading-relaxed mb-6 flex-1">
+                    {workspace.desc}
+                  </p>
+                  <ul className="space-y-3 mb-6">
+                    {workspace.features.map((feature, fidx) => (
+                      <li key={fidx} className="flex items-center gap-3 text-sm text-primary/90 font-light border-b border-white/5 pb-2">
+                        <span className="material-symbols-outlined text-primary-fixed text-[16px]">done</span>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  <button className="w-full py-3 border border-white/20 text-primary font-medium hover:bg-white hover:text-black hover:border-white transition-all duration-300 tracking-wide text-sm">
+                    Inquire Now
+                  </button>
+                </div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        
+        <div className="mt-12 text-center md:hidden">
+          <a href="/facilities" className="inline-flex items-center gap-2 text-primary-fixed hover:text-white transition-colors border-b border-primary-fixed/30 hover:border-white pb-1 font-medium tracking-wide">
+            View All Facilities <span className="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+        </div>
       </div>
     </section>
   );

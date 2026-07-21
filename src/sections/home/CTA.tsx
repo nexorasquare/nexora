@@ -6,23 +6,24 @@ import { Reveal } from "@/components/ui/Reveal";
 
 export function CTA() {
   return (
-    <section className="py-section-padding">
-      <div className="max-w-4xl mx-auto px-margin-mobile text-center">
+    <section className="py-24 md:py-32 bg-primary relative overflow-hidden text-background">
+      <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-black via-transparent to-transparent"></div>
+      <div className="max-w-4xl mx-auto px-6 md:px-12 text-center relative z-10">
         <Reveal>
-          <div className="glass-panel p-8 md:p-16 rounded-[3rem] relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-primary-fixed/10 blur-[100px] rounded-full"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-primary-fixed/5 blur-[100px] rounded-full"></div>
-            <h2 className="font-headline-lg text-headline-lg text-primary mb-6 relative z-10">
-              Elevate Your Work Experience.
-            </h2>
-            <p className="font-body-lg text-secondary mb-10 max-w-xl mx-auto relative z-10">
-              Join the elite community of entrepreneurs and professionals at Nexora Square. Limited spots available for the next quarter.
-            </p>
-            <div className="flex justify-center relative z-10">
-              <Link href="/facilities" className="px-10 py-5 bg-primary-fixed text-on-primary-fixed font-bold rounded-2xl neon-button-glow hover:scale-105 transition-all inline-block">
-                Explore Workspaces
-              </Link>
-            </div>
+          <div className="inline-block border border-background/20 rounded-full px-6 py-2 mb-8">
+            <span className="text-background uppercase tracking-[0.2em] text-sm font-medium">Join The Community</span>
+          </div>
+          <h2 className="text-4xl md:text-6xl font-light mb-8 leading-[1.1] tracking-tight">
+            Ready to elevate your <br/>
+            <span className="font-semibold">workspace experience?</span>
+          </h2>
+          <p className="text-background/80 text-lg md:text-xl mb-12 max-w-2xl mx-auto font-light">
+            Book a personalized tour of Nexora Square and discover how our premium facilities can inspire your next big idea.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-6">
+            <Link href="https://wa.me/918881888444" target="_blank" rel="noopener noreferrer" className="px-10 py-4 bg-background text-primary font-semibold tracking-wide hover:bg-black hover:text-white transition-all duration-300">
+              Book a Tour Now
+            </Link>
           </div>
         </Reveal>
       </div>
