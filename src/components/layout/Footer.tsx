@@ -79,8 +79,8 @@ export function Footer() {
         <div className="flex flex-col gap-4">
           <h4 className="font-bold text-primary mb-2">Address</h4>
           <p className="text-on-surface-variant font-body-md">
-            Nexora Square Business Tower<br />
-            Near Railway Station Road<br />
+            Silver Plaza, Calicut Road<br />
+            Opposite Hindusthan Petrol Pump<br />
             Perinthalmanna, Kerala 679322
           </p>
           <div className="mt-4">
