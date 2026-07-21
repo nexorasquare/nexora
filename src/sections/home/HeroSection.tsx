@@ -117,7 +117,7 @@ export function HeroSection() {
 
       {/* Booking Modal */}
       {isBookingOpen && (
-        <BookingModal onClose={() => setIsBookingOpen(false)} />
+        <BookingModal isOpen={isBookingOpen} onClose={() => setIsBookingOpen(false)} />
       )}
 
       {/* 2. Asymmetric / Dynamic Typography (Bottom-Left bias) */}
