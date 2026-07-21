@@ -1,11 +1,15 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { FadeIn } from "@/components/ui/FadeIn";
 import { Magnet } from "@/components/ui/Magnet";
+import { BookingModal } from "@/components/ui/BookingModal";
 
 export function HeroSection() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isBookingOpen, setIsBookingOpen] = useState(false);
+
   return (
     <section className="relative h-screen w-full flex flex-col overflow-hidden bg-[#0C0C0C]">
       
@@ -51,18 +55,68 @@ export function HeroSection() {
           <FadeIn delay={0.1} y={-20} className="hidden md:block">
             <nav className="flex items-center gap-8">
               {['Home', 'About', 'Workspaces', 'Facilities', 'Contact'].map((item, i) => (
-                <Link 
+                <a 
                   key={item}
-                  href={`#${item.toLowerCase()}`} 
-                  className="text-white opacity-60 hover:opacity-100 hover:text-[#99D508] font-medium uppercase tracking-[0.2em] text-[10px] transition-all duration-300"
+                  href={`#${item.toLowerCase()}`}
+                  onClick={(e) => {
+                    if (item === 'Contact') {
+                      e.preventDefault();
+                      setIsBookingOpen(true);
+                    }
+                  }}
+                  className="text-white opacity-60 hover:opacity-100 hover:text-[#99D508] font-medium uppercase tracking-[0.2em] text-[10px] transition-all duration-300 cursor-pointer"
                 >
                   {item}
-                </Link>
+                </a>
               ))}
             </nav>
           </FadeIn>
+
+          {/* Mobile Menu Toggle */}
+          <FadeIn delay={0.1} y={-20} className="md:hidden">
+            <button 
+              onClick={() => setIsMobileMenuOpen(true)}
+              className="text-white opacity-80 hover:opacity-100 p-2"
+            >
+              <span className="material-symbols-outlined text-2xl">menu</span>
+            </button>
+          </FadeIn>
         </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      <div className={`fixed inset-0 bg-[#0C0C0C] z-[100] flex flex-col justify-center items-center transition-all duration-500 md:hidden ${isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+        <button 
+          onClick={() => setIsMobileMenuOpen(false)}
+          className="absolute top-6 right-6 text-white opacity-80 hover:opacity-100 p-2"
+        >
+          <span className="material-symbols-outlined text-3xl">close</span>
+        </button>
+        <nav className="flex flex-col items-center gap-8">
+          {['Home', 'About', 'Workspaces', 'Facilities', 'Contact'].map((item, i) => (
+            <a 
+              key={item}
+              href={`#${item.toLowerCase()}`} 
+              onClick={(e) => {
+                setIsMobileMenuOpen(false);
+                if (item === 'Contact') {
+                  e.preventDefault();
+                  setIsBookingOpen(true);
+                }
+              }}
+              className="text-white hover:text-[#99D508] font-medium uppercase tracking-[0.3em] text-sm transition-all duration-300 block"
+              style={{ transform: isMobileMenuOpen ? 'translateY(0)' : 'translateY(20px)', opacity: isMobileMenuOpen ? 1 : 0, transitionDelay: `${i * 100}ms` }}
+            >
+              {item}
+            </a>
+          ))}
+        </nav>
+      </div>
+
+      {/* Booking Modal */}
+      {isBookingOpen && (
+        <BookingModal onClose={() => setIsBookingOpen(false)} />
+      )}
 
       {/* 2. Asymmetric / Dynamic Typography (Bottom-Left bias) */}
       <div className="relative z-20 flex-1 flex flex-col justify-end px-6 sm:px-[10%] pb-[15vh]">
