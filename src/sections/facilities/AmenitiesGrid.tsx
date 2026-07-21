@@ -7,7 +7,7 @@ import Image from "next/image";
 const amenities = [
   {
     category: "Workspace Options",
-    image: "/images/amenities/workspace_options.png",
+    image: "/images/amenities/workspace_options.webp",
     items: ["Private cabins (1–6 people)", "Dedicated workstations", "Flexible (hot) desks", "4-seater team cabins", "Executive office suites", "Shared open workspace"],
   },
   {

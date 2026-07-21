@@ -9,9 +9,9 @@ export function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const slides = [
-    "/images/hero-slide-1.png",
-    "/images/hero-slide-2.png",
-    "/images/hero-slide-3.png"
+    "/images/hero-slide-1.webp",
+    "/images/hero-slide-2.webp",
+    "/images/hero-slide-3.webp"
   ];
 
   useEffect(() => {

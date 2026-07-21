@@ -22,7 +22,7 @@ export function Workspaces() {
               <img
                 className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                 alt="Private Cabin"
-                src="/images/executive-suite.png"
+                src="/images/executive-suite.webp"
               />
               <div className="absolute top-4 right-4 px-3 py-1 bg-primary-fixed text-on-primary-fixed text-xs font-bold rounded-full">
                 MOST EXCLUSIVE

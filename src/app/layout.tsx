@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     siteName: "Nexora Square",
     images: [
       {
-        url: "/images/hero-slide-1.png",
+        url: "/images/hero-slide-1.webp",
         width: 1200,
         height: 630,
         alt: "Nexora Square Premium Coworking Space",
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Nexora Square | Premium Coworking in Perinthalmanna",
     description: "Premium Coworking Spaces crafted for Startups, Businesses, Freelancers & Remote Teams in Perinthalmanna.",
-    images: ["/images/hero-slide-1.png"],
+    images: ["/images/hero-slide-1.webp"],
   },
   robots: {
     index: true,

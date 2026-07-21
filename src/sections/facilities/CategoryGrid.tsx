@@ -37,7 +37,7 @@ export function CategoryGrid() {
               <div
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
                 style={{
-                  backgroundImage: "url('/images/executive-suite.png')",
+                  backgroundImage: "url('/images/executive-suite.webp')",
                 }}
               ></div>
               <div className="absolute bottom-8 left-8 z-20">
@@ -60,7 +60,7 @@ export function CategoryGrid() {
               <div className="h-48 overflow-hidden relative">
                 <div
                   className="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-700"
-                  style={{ backgroundImage: "url('/images/conference-hall.png')" }}
+                  style={{ backgroundImage: "url('/images/conference-hall.webp')" }}
                 ></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none"></div>
                 <span className="material-symbols-outlined text-3xl text-primary-fixed absolute bottom-4 left-6">groups</span>
@@ -77,7 +77,7 @@ export function CategoryGrid() {
               <div className="h-48 overflow-hidden relative">
                 <div
                   className="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-700"
-                  style={{ backgroundImage: "url('/images/soundproof-booth.png')" }}
+                  style={{ backgroundImage: "url('/images/soundproof-booth.webp')" }}
                 ></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none"></div>
                 <span
@@ -99,7 +99,7 @@ export function CategoryGrid() {
               <div className="h-48 overflow-hidden relative">
                 <div
                   className="w-full h-full bg-cover bg-center group-hover:scale-110 transition-transform duration-700"
-                  style={{ backgroundImage: "url('/images/podcast-studio.png')" }}
+                  style={{ backgroundImage: "url('/images/podcast-studio.webp')" }}
                 ></div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none"></div>
                 <span className="material-symbols-outlined text-3xl text-primary-fixed absolute bottom-4 left-6">podcasts</span>
@@ -186,7 +186,7 @@ export function CategoryGrid() {
               <div
                 className="w-full h-full bg-cover bg-center"
                 style={{
-                  backgroundImage: "url('/images/meditation-room.png')",
+                  backgroundImage: "url('/images/meditation-room.webp')",
                 }}
               ></div>
               <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition-all"></div>

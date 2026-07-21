@@ -9,7 +9,7 @@ export function Footer() {
         <div className="col-span-1 md:col-span-1">
           <div className="relative w-32 h-10 md:w-40 md:h-12 flex items-center mb-6">
             <Image 
-              src="/images/logo-transparent-v2.png" 
+              src="/images/logo-transparent-v2.webp" 
               alt="Nexora Square" 
               fill 
               sizes="(max-width: 768px) 128px, 160px"
