@@ -42,14 +42,21 @@ export function HeroSection() {
       <div className="absolute top-0 left-0 w-full z-50 px-6 sm:px-10 py-6">
         <div className="border-b border-[rgba(255,255,255,0.08)] pb-6 flex justify-between items-center">
           <FadeIn delay={0} y={-20}>
-            <div className="relative w-32 h-10">
+            <a 
+              href="#" 
+              onClick={(e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="relative w-32 h-10 block cursor-pointer"
+            >
               <Image 
                 src="/images/logo-transparent-v2.webp" 
                 alt="Nexora Square Logo" 
                 fill 
                 className="object-contain object-left"
               />
-            </div>
+            </a>
           </FadeIn>
           
           <FadeIn delay={0.1} y={-20} className="hidden md:block">
