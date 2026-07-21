@@ -63,18 +63,18 @@ export function Footer() {
         </div>
         <div className="flex flex-col gap-4">
           <h4 className="font-bold text-primary mb-2">Support</h4>
-          <Link className="text-on-surface-variant hover:text-primary-fixed transition-colors font-body-md" href="#">
+          <Link className="text-on-surface-variant hover:text-primary-fixed transition-colors font-body-md" href="/privacy">
             Privacy Policy
           </Link>
-          <Link className="text-on-surface-variant hover:text-primary-fixed transition-colors font-body-md" href="#">
+          <Link className="text-on-surface-variant hover:text-primary-fixed transition-colors font-body-md" href="/terms">
             Terms of Service
           </Link>
-          <Link className="text-on-surface-variant hover:text-primary-fixed transition-colors font-body-md" href="#">
-            Contact Us
+          <Link className="text-on-surface-variant hover:text-primary-fixed transition-colors font-body-md" href="/cookies">
+            Cookies Policy
           </Link>
-          <Link className="text-on-surface-variant hover:text-primary-fixed transition-colors font-body-md" href="#">
-            Careers
-          </Link>
+          <a className="text-on-surface-variant hover:text-primary-fixed transition-colors font-body-md" href="https://wa.me/918881888444" target="_blank" rel="noopener noreferrer">
+            Support System
+          </a>
         </div>
         <div className="flex flex-col gap-4">
           <h4 className="font-bold text-primary mb-2">Address</h4>
