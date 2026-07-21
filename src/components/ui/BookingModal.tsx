@@ -28,21 +28,21 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
         onClick={onClose}
       />
       
-      <div className="relative glass-card bg-surface-container-lowest/80 border border-white/10 rounded-3xl p-8 md:p-10 w-full max-w-md shadow-2xl animate-in fade-in zoom-in duration-300 mx-auto my-auto">
+      <div className="relative bg-white rounded-3xl p-8 md:p-10 w-full max-w-md shadow-2xl animate-in fade-in zoom-in duration-300 mx-auto my-auto">
         <button 
           onClick={onClose}
-          className="absolute top-6 right-6 text-on-surface-variant hover:text-primary transition-colors bg-surface-container p-2 rounded-full"
+          className="absolute top-6 right-6 text-gray-400 hover:text-black transition-colors p-2 rounded-full"
         >
           <span className="material-symbols-outlined">close</span>
         </button>
 
-        <h2 className="text-2xl md:text-3xl font-display-md text-primary mb-8 font-semibold tracking-tight">
-          Get Your Space Now <span className="text-primary-fixed">_</span>
+        <h2 className="text-2xl md:text-3xl font-display-md text-black mb-8 font-medium">
+          Get Your Space Now <span className="text-[#3211A4]">_</span>
         </h2>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2">
-            <label className="text-xs font-bold tracking-wider text-primary-fixed uppercase">
+            <label className="text-[10px] font-bold tracking-wider text-gray-500 uppercase">
               Name
             </label>
             <input
@@ -51,12 +51,12 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Full Name"
-              className="w-full bg-background/50 px-5 py-4 rounded-xl border border-white/10 focus:border-primary-fixed focus:ring-1 focus:ring-primary-fixed outline-none transition-all text-primary placeholder:text-on-surface-variant/50"
+              className="w-full bg-[#F5F5F5] px-5 py-4 rounded-xl border-none focus:ring-2 focus:ring-[#024E40] outline-none transition-all text-black placeholder:text-gray-400 text-sm"
             />
           </div>
 
           <div className="space-y-2">
-            <label className="text-xs font-bold tracking-wider text-primary-fixed uppercase">
+            <label className="text-[10px] font-bold tracking-wider text-gray-500 uppercase">
               Mobile Number
             </label>
             <input
@@ -65,13 +65,13 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
               value={mobile}
               onChange={(e) => setMobile(e.target.value)}
               placeholder="Mobile Number"
-              className="w-full bg-background/50 px-5 py-4 rounded-xl border border-white/10 focus:border-primary-fixed focus:ring-1 focus:ring-primary-fixed outline-none transition-all text-primary placeholder:text-on-surface-variant/50"
+              className="w-full bg-[#F5F5F5] px-5 py-4 rounded-xl border-none focus:ring-2 focus:ring-[#024E40] outline-none transition-all text-black placeholder:text-gray-400 text-sm"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-primary-fixed text-on-primary-fixed py-4 rounded-xl font-bold text-lg hover:scale-[1.02] active:scale-[0.98] transition-all mt-4 neon-button-glow"
+            className="w-full bg-[#024E40] text-white py-4 rounded-xl font-medium text-base hover:opacity-90 active:scale-[0.98] transition-all mt-6"
           >
             Find Your Space
           </button>

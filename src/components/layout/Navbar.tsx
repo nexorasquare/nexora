@@ -23,17 +23,18 @@ export function Navbar() {
     { name: "Home", href: "/" },
     { name: "Workspaces", href: "/facilities" },
     { name: "About", href: "/about" },
+    { name: "Contact", href: "#contact" },
   ];
 
   return (
     <nav className="fixed top-0 w-full bg-background border-b border-white/10 shadow-2xl z-50 transition-all duration-300">
       <div className="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-base max-w-container-max mx-auto relative z-50">
-        <Link href="/" onClick={closeMenu} className="relative w-32 h-10 md:w-40 md:h-12 flex items-center">
+        <Link href="/" onClick={closeMenu} className="relative w-44 h-14 md:w-56 md:h-16 flex items-center">
           <Image 
             src="/images/logo-transparent-v2.webp" 
             alt="Nexora Square" 
             fill 
-            sizes="(max-width: 768px) 128px, 160px"
+            sizes="(max-width: 768px) 176px, 224px"
             className="object-contain object-left"
             priority
           />
@@ -50,6 +51,12 @@ export function Navbar() {
                     : "text-on-surface-variant hover:text-primary"
                 }`}
                 href={link.href}
+                onClick={(e) => {
+                  if (link.href === '#contact') {
+                    e.preventDefault();
+                    setIsBookingOpen(true);
+                  }
+                }}
               >
                 {link.name}
               </Link>
@@ -78,7 +85,13 @@ export function Navbar() {
           return (
             <Link
               key={link.name}
-              onClick={closeMenu}
+              onClick={(e) => {
+                if (link.href === '#contact') {
+                  e.preventDefault();
+                  setIsBookingOpen(true);
+                }
+                closeMenu();
+              }}
               className={`text-3xl font-bold tracking-wider transition-colors ${
                 isActive ? "text-primary-fixed" : "text-primary hover:text-primary-fixed"
               }`}
