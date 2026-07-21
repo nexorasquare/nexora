@@ -73,14 +73,12 @@ export function HeroSection() {
           </FadeIn>
 
           {/* Mobile Menu Toggle */}
-          <FadeIn delay={0.1} y={-20} className="md:hidden">
-            <button 
-              onClick={() => setIsMobileMenuOpen(true)}
-              className="text-white opacity-80 hover:opacity-100 p-2"
-            >
-              <span className="material-symbols-outlined text-2xl">menu</span>
-            </button>
-          </FadeIn>
+          <button 
+            onClick={() => setIsMobileMenuOpen(true)}
+            className="md:hidden text-white opacity-80 hover:opacity-100 p-2"
+          >
+            <span className="material-symbols-outlined text-2xl">menu</span>
+          </button>
         </div>
       </div>
 
