@@ -26,7 +26,6 @@ export function FooterSection() {
             <Link href="#about" className="hover:text-[#99D508] transition-colors duration-200">About</Link>
             <Link href="#workspaces" className="hover:text-[#99D508] transition-colors duration-200">Workspaces</Link>
             <Link href="#facilities" className="hover:text-[#99D508] transition-colors duration-200">Facilities</Link>
-            <Link href="#location" className="hover:text-[#99D508] transition-colors duration-200">Locations</Link>
             <Link href="#contact" className="hover:text-[#99D508] transition-colors duration-200">Contact</Link>
           </nav>
           
