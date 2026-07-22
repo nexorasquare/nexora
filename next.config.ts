@@ -3,9 +3,9 @@ import type { NextConfig } from "next";
 const cspHeader = `
   default-src 'self';
   script-src 'self' 'unsafe-eval' 'unsafe-inline';
-  style-src 'self' 'unsafe-inline';
-  img-src 'self' blob: data: https://lh3.googleusercontent.com https://images.unsplash.com;
-  font-src 'self';
+  style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+  img-src 'self' blob: data: https://lh3.googleusercontent.com https://images.unsplash.com https://*.google.com https://mt1.google.com https://mt2.google.com https://mt3.google.com;
+  font-src 'self' https://fonts.gstatic.com;
   object-src 'none';
   base-uri 'self';
   form-action 'self';
