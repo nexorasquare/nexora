@@ -15,9 +15,16 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    const text = encodeURIComponent(`Hi Nexora Square, I'm interested in booking a workspace.\n\nName: ${name}\nMobile: ${mobile}`);
+    
+    // Basic sanitization
+    const sanitizedName = name.replace(/[^\w\s\-']/g, '').trim().substring(0, 50);
+    const sanitizedMobile = mobile.replace(/[^\d\+\s\-]/g, '').trim().substring(0, 15);
+
+    if (!sanitizedName || !sanitizedMobile) return;
+
+    const text = encodeURIComponent(`Hi Nexora Square, I'm interested in booking a workspace.\n\nName: ${sanitizedName}\nMobile: ${sanitizedMobile}`);
     const whatsappUrl = `https://wa.me/918881888444?text=${text}`;
-    window.open(whatsappUrl, "_blank");
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
     onClose();
   };
 
@@ -48,6 +55,9 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
             <input
               type="text"
               required
+              maxLength={50}
+              pattern="^[a-zA-Z\s\-']{2,50}$"
+              title="Name should only contain letters, spaces, hyphens, and apostrophes."
               value={name}
               onChange={(e) => setName(e.target.value)}
               placeholder="Full Name"
@@ -62,6 +72,9 @@ export function BookingModal({ isOpen, onClose }: BookingModalProps) {
             <input
               type="tel"
               required
+              maxLength={15}
+              pattern="^\+?[0-9\s\-]{10,15}$"
+              title="Enter a valid mobile number (10 to 15 digits, optionally starting with +)"
               value={mobile}
               onChange={(e) => setMobile(e.target.value)}
               placeholder="Mobile Number"
