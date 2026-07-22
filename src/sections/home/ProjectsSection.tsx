@@ -83,7 +83,7 @@ export function ProjectsSection() {
               style={{ 
                 scale,
                 '--card-top': `calc(10vh + ${index * 28}px)`
-              } as React.CSSProperties}
+              } as any}
               className="relative top-0 md:sticky md:top-[var(--card-top)] w-full rounded-[30px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-5 sm:p-6 md:p-8 flex flex-col gap-4 md:gap-8 shadow-2xl overflow-hidden"
             >
               {/* Top Row */}
