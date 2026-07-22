@@ -52,7 +52,7 @@ const facilitiesData = [
 
 export function ServicesSection() {
   return (
-    <section id="facilities" className="bg-[#FFFFFF] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32 relative z-10">
+    <section id="facilities" className="bg-[#F7F7F2] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] px-5 sm:px-8 md:px-10 py-20 sm:py-24 md:py-32 relative z-10">
       <div className="max-w-5xl mx-auto w-full">
         <FadeIn delay={0} y={40} className="w-full text-center">
           <h2 className="text-[#0C0C0C] font-black uppercase text-[clamp(2.5rem,10vw,160px)] mb-16 sm:mb-20 md:mb-28 leading-none">
