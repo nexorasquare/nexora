@@ -62,7 +62,7 @@ export function ProjectsSection() {
   });
 
   return (
-    <section id="workspaces" ref={containerRef} className="bg-[#0C0C0C] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 relative z-20 px-5 sm:px-8 md:px-10 pt-20 pb-0 md:py-20 md:pb-[100vh]">
+    <section id="workspaces" ref={containerRef} className="bg-[#0C0C0C] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 relative z-20 px-5 sm:px-8 md:px-10 pt-20 pb-[25vh] md:py-20 md:pb-[100vh]">
       <div className="w-full text-center mb-16 sm:mb-20 md:mb-28">
         <h2 className="hero-heading font-black uppercase text-[clamp(3rem,12vw,160px)] leading-none tracking-tight">
           Workspaces
