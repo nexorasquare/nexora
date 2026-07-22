@@ -155,9 +155,15 @@ export function HeroSection() {
             </FadeIn>
 
             <FadeIn delay={0.8} y={20}>
-              <div className="inline-flex items-center gap-3 px-4 py-1.5 rounded-sm border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.02)] backdrop-blur-sm text-white text-[10px] uppercase tracking-[0.3em] font-medium">
-                A New Era of Workspace
-              </div>
+              <button 
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsBookingOpen(true);
+                }}
+                className="inline-flex items-center gap-3 px-6 py-3 rounded-sm border border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.02)] backdrop-blur-sm text-white text-xs uppercase tracking-[0.2em] font-medium hover:bg-[#99D508] hover:text-[#0C0C0C] hover:border-[#99D508] transition-all duration-300 cursor-pointer"
+              >
+                Book a Visit
+              </button>
             </FadeIn>
           </div>
 
