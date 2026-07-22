@@ -48,7 +48,7 @@ export function HeroSection() {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="relative w-32 h-10 block cursor-pointer"
+              className="relative w-48 h-14 block cursor-pointer"
             >
               <Image 
                 src="/images/logo-transparent-v2.webp" 
@@ -60,7 +60,7 @@ export function HeroSection() {
           </FadeIn>
           
           <FadeIn delay={0.1} y={-20} className="hidden md:block">
-            <nav className="flex items-center gap-8">
+            <nav className="flex items-center gap-10">
               {['Home', 'About', 'Workspaces', 'Facilities', 'Contact'].map((item, i) => (
                 <a 
                   key={item}
@@ -71,7 +71,7 @@ export function HeroSection() {
                       setIsBookingOpen(true);
                     }
                   }}
-                  className="text-white opacity-60 hover:opacity-100 hover:text-[#99D508] font-medium uppercase tracking-[0.2em] text-[10px] transition-all duration-300 cursor-pointer"
+                  className="text-white opacity-60 hover:opacity-100 hover:text-[#99D508] font-medium uppercase tracking-[0.2em] text-xs transition-all duration-300 cursor-pointer"
                 >
                   {item}
                 </a>
