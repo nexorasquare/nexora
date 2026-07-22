@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState, useEffect } from "react";
+import React, { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 
@@ -56,16 +56,6 @@ const workspaces = [
 
 export function ProjectsSection() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [isMobile, setIsMobile] = useState(false);
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -80,7 +70,7 @@ export function ProjectsSection() {
         </h2>
       </div>
 
-      <div className="w-full max-w-7xl mx-auto relative flex flex-col gap-6 md:block md:h-[600vh]">
+      <div className="w-full max-w-7xl mx-auto relative flex flex-col gap-8 md:block md:h-[600vh]">
         {workspaces.map((proj, index) => {
           const step = 1 / workspaces.length;
           const start = index * step;
@@ -90,8 +80,11 @@ export function ProjectsSection() {
           return (
             <motion.div
               key={index}
-              style={isMobile ? {} : { scale, top: `calc(10vh + ${index * 28}px)` }}
-              className={`${isMobile ? 'relative' : 'sticky'} w-full rounded-[30px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-5 sm:p-6 md:p-8 flex flex-col gap-4 md:gap-8 shadow-2xl overflow-hidden`}
+              style={{ 
+                scale,
+                '--card-top': `calc(10vh + ${index * 28}px)`
+              } as React.CSSProperties}
+              className="relative top-0 md:sticky md:top-[var(--card-top)] w-full rounded-[30px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-5 sm:p-6 md:p-8 flex flex-col gap-4 md:gap-8 shadow-2xl overflow-hidden"
             >
               {/* Top Row */}
               <div className="flex flex-col justify-start items-start gap-2">
