@@ -48,7 +48,7 @@ export function HeroSection() {
                 e.preventDefault();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
-              className="relative w-48 h-14 block cursor-pointer"
+              className="relative w-36 h-10 md:w-48 md:h-14 block cursor-pointer"
             >
               <Image 
                 src="/images/logo-transparent-v2.webp" 
@@ -154,13 +154,13 @@ export function HeroSection() {
               </p>
             </FadeIn>
 
-            <FadeIn delay={0.8} y={20}>
+            <FadeIn delay={0.8} y={20} className="w-full md:w-auto">
               <button 
                 onClick={(e) => {
                   e.preventDefault();
                   setIsBookingOpen(true);
                 }}
-                className="inline-flex items-center gap-3 px-6 py-3 rounded-sm border border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.02)] backdrop-blur-sm text-white text-xs uppercase tracking-[0.2em] font-medium hover:bg-[#99D508] hover:text-[#0C0C0C] hover:border-[#99D508] transition-all duration-300 cursor-pointer"
+                className="w-full md:w-auto inline-flex justify-center items-center gap-3 px-6 py-4 md:py-3 rounded-sm border border-[rgba(255,255,255,0.2)] bg-[rgba(255,255,255,0.02)] backdrop-blur-sm text-white text-xs uppercase tracking-[0.2em] font-medium hover:bg-[#99D508] hover:text-[#0C0C0C] hover:border-[#99D508] transition-all duration-300 cursor-pointer"
               >
                 Book a Visit
               </button>
