@@ -62,7 +62,7 @@ export function ProjectsSection() {
   });
 
   return (
-    <section id="workspaces" ref={containerRef} className="bg-[#0C0C0C] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 relative z-20 px-5 sm:px-8 md:px-10 pt-20 pb-[25vh] md:py-20 md:pb-[100vh]">
+    <section id="workspaces" ref={containerRef} className="bg-[#0C0C0C] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 relative z-20 px-5 sm:px-8 md:px-10 pt-20 pb-[40vh] md:py-20 md:pb-[100vh]">
       <div className="w-full text-center mb-16 sm:mb-20 md:mb-28">
         <h2 className="hero-heading font-black uppercase text-[clamp(3rem,12vw,160px)] leading-none tracking-tight">
           Workspaces
@@ -79,34 +79,34 @@ export function ProjectsSection() {
           return (
             <motion.div
               key={index}
-              style={{ scale, top: `calc(10vh + ${index * 28}px)` }}
-              className="sticky w-full rounded-[40px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-4 sm:p-6 md:p-8 flex flex-col gap-8 shadow-2xl overflow-hidden"
+              style={{ scale, top: `calc(8vh + ${index * 14}px)` }}
+              className="sticky w-full rounded-[30px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-5 sm:p-6 md:p-8 flex flex-col gap-4 md:gap-8 shadow-2xl overflow-hidden"
             >
               {/* Top Row */}
               <div className="flex flex-col justify-start items-start gap-2">
-                <div className="flex items-center gap-6">
-                  <span className="font-black text-[#99D508] text-[clamp(3rem,8vw,100px)] leading-none">{proj.num}</span>
+                <div className="flex items-center gap-4 sm:gap-6">
+                  <span className="font-black text-[#99D508] text-[clamp(2.5rem,8vw,100px)] leading-none">{proj.num}</span>
                   <div className="flex flex-col">
                     <span className="text-[#99D508] font-medium uppercase tracking-widest text-xs md:text-sm">{proj.label}</span>
-                    <h3 className="text-[#D7E2EA] font-medium uppercase text-[clamp(1.5rem,4vw,3rem)] leading-tight">{proj.title}</h3>
+                    <h3 className="text-[#D7E2EA] font-medium uppercase text-[clamp(1.25rem,4vw,3rem)] leading-tight">{proj.title}</h3>
                   </div>
                 </div>
-                <p className="text-[#D7E2EA] font-light md:ml-[115px] opacity-80 text-sm md:text-lg">
+                <p className="text-[#D7E2EA] font-light md:ml-[115px] opacity-80 text-xs sm:text-sm md:text-lg">
                   Designed for privacy, collaboration, and productivity.
                 </p>
               </div>
 
-              {/* Bottom Row Images */}
-              <div className="flex flex-col md:flex-row gap-4 h-full min-h-[400px]">
+              {/* Bottom Row Images (Compact single image on mobile, 3-image grid on desktop) */}
+              <div className="flex flex-col md:flex-row gap-4 h-auto md:h-full md:min-h-[400px]">
                 <div className="flex flex-col w-full md:w-[40%] gap-4">
-                  <div className="relative w-full h-[clamp(130px,16vw,230px)] rounded-[30px] sm:rounded-[40px] md:rounded-[50px] overflow-hidden bg-gray-900">
+                  <div className="relative w-full h-[180px] sm:h-[220px] md:h-[clamp(130px,16vw,230px)] rounded-[20px] sm:rounded-[40px] md:rounded-[50px] overflow-hidden bg-gray-900">
                     <Image src={proj.img1} alt={proj.title} fill className="object-cover" unoptimized />
                   </div>
-                  <div className="relative w-full flex-1 min-h-[clamp(160px,22vw,340px)] rounded-[30px] sm:rounded-[40px] md:rounded-[50px] overflow-hidden bg-gray-900">
+                  <div className="hidden md:block relative w-full flex-1 min-h-[clamp(160px,22vw,340px)] rounded-[30px] sm:rounded-[40px] md:rounded-[50px] overflow-hidden bg-gray-900">
                     <Image src={proj.img2} alt={proj.title} fill className="object-cover" unoptimized />
                   </div>
                 </div>
-                <div className="relative w-full md:w-[60%] min-h-[300px] md:min-h-full rounded-[30px] sm:rounded-[40px] md:rounded-[50px] overflow-hidden bg-gray-900">
+                <div className="hidden md:block relative w-full md:w-[60%] min-h-[300px] md:min-h-full rounded-[30px] sm:rounded-[40px] md:rounded-[50px] overflow-hidden bg-gray-900">
                   <Image src={proj.img3} alt={proj.title} fill className="object-cover" unoptimized />
                 </div>
               </div>
