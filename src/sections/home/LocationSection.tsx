@@ -59,7 +59,7 @@ export function LocationSection() {
   };
 
   return (
-    <section id="location" className="bg-[#0C0C0C] px-5 sm:px-8 md:px-10 py-20 md:py-32 relative z-20 overflow-hidden">
+    <section id="location" className="bg-[#0C0C0C] px-5 sm:px-8 md:px-10 pt-10 pb-20 md:py-32 relative z-20 overflow-hidden">
       <div className="max-w-[1400px] mx-auto w-full flex flex-col gap-12 md:gap-20">
         
         {/* Header */}
