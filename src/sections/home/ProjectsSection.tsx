@@ -62,14 +62,14 @@ export function ProjectsSection() {
   });
 
   return (
-    <section id="workspaces" ref={containerRef} className="bg-[#0C0C0C] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 relative z-20 px-5 sm:px-8 md:px-10 py-20 pb-32">
+    <section id="workspaces" ref={containerRef} className="bg-[#0C0C0C] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 relative z-20 px-5 sm:px-8 md:px-10 py-20 pb-[100vh]">
       <div className="w-full text-center mb-16 sm:mb-20 md:mb-28">
         <h2 className="hero-heading font-black uppercase text-[clamp(3rem,12vw,160px)] leading-none tracking-tight">
           Workspaces
         </h2>
       </div>
 
-      <div className="w-full max-w-7xl mx-auto relative h-[300vh]">
+      <div className="w-full max-w-7xl mx-auto relative h-[600vh]">
         {workspaces.map((proj, index) => {
           const step = 1 / workspaces.length;
           const start = index * step;
