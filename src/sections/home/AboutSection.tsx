@@ -11,13 +11,13 @@ export function AboutSection() {
       
 
       <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto w-full">
-        <FadeIn delay={0} y={40} className="w-full text-center">
+        <div className="w-full text-center">
           <h2 className="font-black uppercase leading-none tracking-tight text-[clamp(2rem,6vw,100px)] text-white flex flex-col items-center">
-            <span className="block">ABOUT</span>
-            <span className="block text-[#99D508]">NEXORA</span>
-            <span className="block">SQUARE</span>
+            <FadeIn delay={0.1} y={40}><span className="block hover:text-[#99D508] transition-colors duration-500 cursor-default">ABOUT</span></FadeIn>
+            <FadeIn delay={0.3} y={40}><span className="block text-[#99D508] hover:text-white transition-colors duration-500 cursor-default">NEXORA</span></FadeIn>
+            <FadeIn delay={0.5} y={40}><span className="block hover:text-[#99D508] transition-colors duration-500 cursor-default">SQUARE</span></FadeIn>
           </h2>
-        </FadeIn>
+        </div>
 
         <div className="flex flex-col items-center mt-10 sm:mt-14 md:mt-16 w-full gap-16 sm:gap-20 md:gap-24">
           <AnimatedText 
