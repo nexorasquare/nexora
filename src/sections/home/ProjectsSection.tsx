@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 
@@ -56,20 +56,31 @@ const workspaces = [
 
 export function ProjectsSection() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
   });
 
   return (
-    <section id="workspaces" ref={containerRef} className="bg-[#0C0C0C] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 relative z-20 px-5 sm:px-8 md:px-10 pt-20 pb-[40vh] md:py-20 md:pb-[100vh]">
-      <div className="w-full text-center mb-16 sm:mb-20 md:mb-28">
+    <section id="workspaces" ref={containerRef} className="bg-[#0C0C0C] rounded-t-[40px] sm:rounded-t-[50px] md:rounded-t-[60px] -mt-10 sm:-mt-12 md:-mt-14 relative z-20 px-5 sm:px-8 md:px-10 py-16 md:py-20 md:pb-[100vh]">
+      <div className="w-full text-center mb-12 sm:mb-16 md:mb-28">
         <h2 className="hero-heading font-black uppercase text-[clamp(3rem,12vw,160px)] leading-none tracking-tight">
           Workspaces
         </h2>
       </div>
 
-      <div className="w-full max-w-7xl mx-auto relative h-[600vh]">
+      <div className="w-full max-w-7xl mx-auto relative flex flex-col gap-6 md:block md:h-[600vh]">
         {workspaces.map((proj, index) => {
           const step = 1 / workspaces.length;
           const start = index * step;
@@ -79,8 +90,8 @@ export function ProjectsSection() {
           return (
             <motion.div
               key={index}
-              style={{ scale, top: `calc(8vh + ${index * 14}px)` }}
-              className="sticky w-full rounded-[30px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-5 sm:p-6 md:p-8 flex flex-col gap-4 md:gap-8 shadow-2xl overflow-hidden"
+              style={isMobile ? {} : { scale, top: `calc(10vh + ${index * 28}px)` }}
+              className={`${isMobile ? 'relative' : 'sticky'} w-full rounded-[30px] sm:rounded-[50px] md:rounded-[60px] border-2 border-[#D7E2EA] bg-[#0C0C0C] p-5 sm:p-6 md:p-8 flex flex-col gap-4 md:gap-8 shadow-2xl overflow-hidden`}
             >
               {/* Top Row */}
               <div className="flex flex-col justify-start items-start gap-2">
@@ -96,7 +107,7 @@ export function ProjectsSection() {
                 </p>
               </div>
 
-              {/* Bottom Row Images (Compact single image on mobile, 3-image grid on desktop) */}
+              {/* Bottom Row Images */}
               <div className="flex flex-col md:flex-row gap-4 h-auto md:h-full md:min-h-[400px]">
                 <div className="flex flex-col w-full md:w-[40%] gap-4">
                   <div className="relative w-full h-[180px] sm:h-[220px] md:h-[clamp(130px,16vw,230px)] rounded-[20px] sm:rounded-[40px] md:rounded-[50px] overflow-hidden bg-gray-900">
