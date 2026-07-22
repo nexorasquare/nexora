@@ -12,8 +12,10 @@ export function AboutSection() {
 
       <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto w-full">
         <FadeIn delay={0} y={40} className="w-full text-center">
-          <h2 className="font-black uppercase leading-none tracking-tight text-[clamp(2rem,6vw,100px)] text-white">
-            About <br className="hidden sm:block"/> <span className="text-[#99D508]">Nexora</span> Square
+          <h2 className="font-black uppercase leading-none tracking-tight text-[clamp(2rem,6vw,100px)] text-white flex flex-col items-center">
+            <span className="block">ABOUT</span>
+            <span className="block text-[#99D508]">NEXORA</span>
+            <span className="block">SQUARE</span>
           </h2>
         </FadeIn>
 
