@@ -100,6 +100,39 @@ export default function RootLayout({
     >
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "CoworkingSpace",
+              "name": "Nexora Square",
+              "alternateName": "Nexora Square Coworking Space",
+              "url": "https://nexorasquare.com",
+              "logo": "https://nexorasquare.com/android-chrome-512x512.png",
+              "image": "https://nexorasquare.com/images/hero-slide-1.webp",
+              "description": "Premium Coworking Spaces crafted for Startups, Businesses, Freelancers & Remote Teams in Perinthalmanna.",
+              "telephone": "+918881888444",
+              "email": "info@nexorasquare.com",
+              "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Silver Plaza, Calicut Road, Opposite Hindusthan Petrol Pump",
+                "addressLocality": "Perinthalmanna",
+                "addressRegion": "Kerala",
+                "postalCode": "679322",
+                "addressCountry": "IN"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 10.9864,
+                "longitude": 76.2236
+              },
+              "sameAs": [
+                "https://www.instagram.com/nexorasquare"
+              ]
+            })
+          }}
+        />
       </head>
       <body className="bg-background text-on-surface font-body-md text-body-md min-h-screen flex flex-col overflow-x-hidden">
         <main className="flex-1 w-full overflow-hidden">
