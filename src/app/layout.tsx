@@ -28,21 +28,21 @@ export const metadata: Metadata = {
   creator: "Nexora Square",
   icons: {
     icon: [
-      { url: "/favicon.ico?v=2" },
-      { url: "/favicon-16x16.png?v=2", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png?v=2", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-48x48.png?v=2", sizes: "48x48", type: "image/png" },
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
     ],
-    shortcut: "/favicon-32x32.png?v=2",
-    apple: "/apple-touch-icon.png?v=2",
+    shortcut: "/favicon-32x32.png",
+    apple: "/apple-touch-icon.png",
     other: [
       {
         rel: "android-chrome-192x192",
-        url: "/android-chrome-192x192.png?v=2",
+        url: "/android-chrome-192x192.png",
       },
       {
         rel: "android-chrome-512x512",
-        url: "/android-chrome-512x512.png?v=2",
+        url: "/android-chrome-512x512.png",
       },
     ],
   },
@@ -56,10 +56,10 @@ export const metadata: Metadata = {
     siteName: "Nexora Square",
     images: [
       {
-        url: "/images/logo-new.png",
-        width: 1200,
-        height: 630,
-        alt: "Nexora Square Logo",
+        url: "/images/logo-emblem-3d.png",
+        width: 1024,
+        height: 1024,
+        alt: "Nexora Square Metallic Emblem",
       },
       {
         url: "/images/hero-slide-1.webp",
@@ -73,7 +73,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Nexora Square | Premium Coworking Space in Perinthalmanna",
     description: "Premium Coworking Spaces crafted for Startups, Businesses, Freelancers & Remote Teams in Perinthalmanna.",
-    images: ["/images/logo-new.png"],
+    images: ["/images/logo-emblem-3d.png"],
   },
   robots: {
     index: true,
@@ -100,39 +100,6 @@ export default function RootLayout({
     >
       <head>
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "CoworkingSpace",
-              "name": "Nexora Square",
-              "alternateName": "Nexora Square Coworking Space",
-              "url": "https://nexorasquare.com",
-              "logo": "https://nexorasquare.com/android-chrome-512x512.png",
-              "image": "https://nexorasquare.com/images/hero-slide-1.webp",
-              "description": "Premium Coworking Spaces crafted for Startups, Businesses, Freelancers & Remote Teams in Perinthalmanna.",
-              "telephone": "+918881888444",
-              "email": "info@nexorasquare.com",
-              "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "Silver Plaza, Calicut Road, Opposite Hindusthan Petrol Pump",
-                "addressLocality": "Perinthalmanna",
-                "addressRegion": "Kerala",
-                "postalCode": "679322",
-                "addressCountry": "IN"
-              },
-              "geo": {
-                "@type": "GeoCoordinates",
-                "latitude": 10.9864,
-                "longitude": 76.2236
-              },
-              "sameAs": [
-                "https://www.instagram.com/nexorasquare"
-              ]
-            })
-          }}
-        />
       </head>
       <body className="bg-background text-on-surface font-body-md text-body-md min-h-screen flex flex-col overflow-x-hidden">
         <main className="flex-1 w-full overflow-hidden">
