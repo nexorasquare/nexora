@@ -10,7 +10,7 @@ export function Footer() {
           <div className="relative w-48 h-14 md:w-56 md:h-16 flex items-center mb-6">
             <Image 
               src="/images/logo-transparent-v2.webp" 
-              alt="Nexora Square" 
+              alt="Nexora Square Logo" 
               fill 
               sizes="(max-width: 768px) 192px, 224px"
               className="object-contain object-left"

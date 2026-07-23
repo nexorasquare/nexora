@@ -10,6 +10,12 @@ const kanit = Kanit({
   subsets: ["latin"],
 });
 
+import type { Viewport } from "next";
+
+export const viewport: Viewport = {
+  themeColor: "#0E1317",
+};
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://nexorasquare.com"),
   title: {
@@ -20,14 +26,41 @@ export const metadata: Metadata = {
   keywords: ["coworking space", "Perinthalmanna", "shared office", "startup workspace", "freelance space", "executive suites", "hot desks", "meeting rooms", "Kerala coworking"],
   authors: [{ name: "Nexora Square" }],
   creator: "Nexora Square",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
+    ],
+    shortcut: "/favicon-32x32.png",
+    apple: "/apple-touch-icon.png",
+    other: [
+      {
+        rel: "android-chrome-192x192",
+        url: "/android-chrome-192x192.png",
+      },
+      {
+        rel: "android-chrome-512x512",
+        url: "/android-chrome-512x512.png",
+      },
+    ],
+  },
+  manifest: "/manifest.webmanifest",
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://nexorasquare.com",
-    title: "Nexora Square | Premium Coworking in Perinthalmanna",
+    title: "Nexora Square | Premium Coworking Space in Perinthalmanna",
     description: "Premium Coworking Spaces crafted for Startups, Businesses, Freelancers & Remote Teams in Perinthalmanna.",
     siteName: "Nexora Square",
     images: [
+      {
+        url: "/images/logo-new.png",
+        width: 1200,
+        height: 630,
+        alt: "Nexora Square Logo",
+      },
       {
         url: "/images/hero-slide-1.webp",
         width: 1200,
@@ -38,9 +71,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nexora Square | Premium Coworking in Perinthalmanna",
+    title: "Nexora Square | Premium Coworking Space in Perinthalmanna",
     description: "Premium Coworking Spaces crafted for Startups, Businesses, Freelancers & Remote Teams in Perinthalmanna.",
-    images: ["/images/hero-slide-1.webp"],
+    images: ["/images/logo-new.png"],
   },
   robots: {
     index: true,

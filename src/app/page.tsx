@@ -9,8 +9,8 @@ import { CtaSection } from "@/sections/home/CtaSection";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "premium coworking space",
-  description: "3D Creator Portfolio",
+  title: "Nexora Square | Premium Coworking Space in Perinthalmanna",
+  description: "Premium Coworking Spaces crafted for Startups, Businesses, Freelancers & Remote Teams in Perinthalmanna. Experience executive suites, hot desks, and more.",
 };
 
 export default function Home() {

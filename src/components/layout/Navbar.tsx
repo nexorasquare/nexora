@@ -32,7 +32,7 @@ export function Navbar() {
         <Link href="/" onClick={closeMenu} className="relative w-44 h-14 md:w-56 md:h-16 flex items-center">
           <Image 
             src="/images/logo-transparent-v2.webp" 
-            alt="Nexora Square" 
+            alt="Nexora Square Logo" 
             fill 
             sizes="(max-width: 768px) 176px, 224px"
             className="object-contain object-left"
