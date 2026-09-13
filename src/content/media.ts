@@ -115,7 +115,7 @@ export const galleryCategories: { name: string; blurb: string; shots: ImageSlot[
     name: "Events",
     blurb: "Workshops, meetups and knowledge sessions.",
     shots: [
-      { src: null, alt: "Workshop in progress", label: "Workshop — wide", ratio: "16/9" },
+      { src: "/images/facility/workshop.webp", alt: "A workshop session at Nexora Square", label: "Workshop — wide", ratio: "16/9" },
       { src: "/images/facility/community-square.webp", alt: "Members in conversation at a community meetup", label: "Founder meetup", ratio: "1/1" },
     ],
   },
