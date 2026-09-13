@@ -26,8 +26,8 @@ export const media = {
     ratio: "4/3",
   },
   virtualOffice: {
-    src: "/images/facility/exterior-signage.webp",
-    alt: "Nexora Square signage on the building exterior in Perinthalmanna",
+    src: "/images/facility/vision-render-4x3.webp",
+    alt: "Nexora Square, Perinthalmanna",
     label: "Virtual Office — reception / front desk",
     ratio: "4/3",
   },
@@ -44,8 +44,8 @@ export const media = {
     ratio: "16/9",
   },
   exterior: {
-    src: "/images/facility/exterior-signage-tall.webp",
-    alt: "Nexora Square building near MarketCity Mall, Perinthalmanna",
+    src: "/images/facility/vision-render.webp",
+    alt: "Nexora Square, Perinthalmanna",
     label: "Exterior — building and signage",
     ratio: "3/4",
   },
