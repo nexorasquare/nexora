@@ -61,14 +61,14 @@ export const metadata: Metadata = {
     title: `${site.name} | ${site.descriptor}`,
     description:
       "Premium workspaces, virtual office solutions and a business community in Perinthalmanna.",
-    images: [{ url: "/images/logo-emblem-3d.png", width: 1024, height: 1024, alt: site.name }],
+    images: [{ url: "/images/og.jpg", width: 1200, height: 630, alt: `${site.name} - Work. Connect. Innovate.` }],
   },
   twitter: {
     card: "summary_large_image",
     title: `${site.name} | ${site.descriptor}`,
     description:
       "Premium workspaces, virtual office solutions and a business community in Perinthalmanna.",
-    images: ["/images/logo-emblem-3d.png"],
+    images: ["/images/og.jpg"],
   },
   robots: {
     index: true,
@@ -85,7 +85,7 @@ const localBusinessJsonLd = {
   url: site.url,
   telephone: site.phoneDisplay,
   email: site.email,
-  image: `${site.url}/images/logo-emblem-3d.png`,
+  image: `${site.url}/images/og.jpg`,
   address: {
     "@type": "PostalAddress",
     streetAddress: addressLines.slice(0, 2).join(", "),
