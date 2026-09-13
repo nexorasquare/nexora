@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useCallback, useEffect, useId, useRef, useState } from "react";
-import { site, whatsappLink } from "@/content/site";
+import { whatsappLink } from "@/content/site";
 import { workspaces } from "@/content/workspaces";
 import { Button } from "@/components/ui/Button";
+import { cn } from "@/lib/utils";
 
 const interests = [
   ...workspaces.map((w) => w.name),
@@ -13,8 +14,10 @@ const interests = [
   "Other",
 ];
 
+// 16px text stops iOS zooming into the field; min-h-12 keeps every target
+// comfortably above the 44px touch minimum.
 const inputClass =
-  "w-full min-h-11 border border-line-dark bg-ink px-3.5 py-2.5 text-body text-cloud focus:border-lime focus:outline-none";
+  "w-full min-h-12 rounded-card border border-line-dark bg-ink px-4 py-3 text-[16px] leading-snug text-cloud placeholder:text-slate/60 focus:border-lime focus:outline-none";
 
 export function BookTourModal({ open, onClose }: { open: boolean; onClose: () => void }) {
   const dialogRef = useRef<HTMLDivElement>(null);
@@ -23,17 +26,15 @@ export function BookTourModal({ open, onClose }: { open: boolean; onClose: () =>
   const [values, setValues] = useState({
     name: "",
     phone: "",
-    email: "",
     interest: interests[0],
     people: "",
     date: "",
-    message: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
   const set =
     (key: keyof typeof values) =>
-    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) =>
       setValues((v) => ({ ...v, [key]: e.target.value }));
 
   // Escape to close, Tab trapped inside, background scroll locked, and focus
@@ -67,8 +68,8 @@ export function BookTourModal({ open, onClose }: { open: boolean; onClose: () =>
 
     document.addEventListener("keydown", onKeyDown);
     const timer = window.setTimeout(() => {
-      dialogRef.current?.querySelector<HTMLElement>("input, select, textarea")?.focus();
-    }, 40);
+      dialogRef.current?.querySelector<HTMLElement>("input")?.focus();
+    }, 60);
 
     return () => {
       document.removeEventListener("keydown", onKeyDown);
@@ -85,8 +86,6 @@ export function BookTourModal({ open, onClose }: { open: boolean; onClose: () =>
       if (values.name.trim().length < 2) next.name = "Please enter your name.";
       if (!/^\+?[0-9\s-]{10,15}$/.test(values.phone.trim()))
         next.phone = "Enter a valid phone number.";
-      if (values.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim()))
-        next.email = "Enter a valid email address, or leave it blank.";
       setErrors(next);
       if (Object.keys(next).length) return;
 
@@ -95,11 +94,9 @@ export function BookTourModal({ open, onClose }: { open: boolean; onClose: () =>
         "",
         `Name: ${values.name.trim()}`,
         `Phone: ${values.phone.trim()}`,
-        values.email.trim() ? `Email: ${values.email.trim()}` : "",
         `Interested in: ${values.interest}`,
         values.people.trim() ? `Number of people: ${values.people.trim()}` : "",
         values.date ? `Preferred visit date: ${values.date}` : "",
-        values.message.trim() ? `Message: ${values.message.trim()}` : "",
       ].filter(Boolean);
 
       window.open(whatsappLink(lines.join("\n")), "_blank", "noopener,noreferrer");
@@ -111,7 +108,7 @@ export function BookTourModal({ open, onClose }: { open: boolean; onClose: () =>
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-end justify-center overflow-y-auto bg-ink/80 backdrop-blur-sm sm:items-center sm:p-6">
+    <div className="fixed inset-0 z-[100] flex items-end justify-center bg-ink/80 backdrop-blur-sm sm:items-center sm:p-6">
       <button
         type="button"
         aria-label="Close dialog"
@@ -119,25 +116,29 @@ export function BookTourModal({ open, onClose }: { open: boolean; onClose: () =>
         className="absolute inset-0 cursor-default"
         onClick={onClose}
       />
+
+      {/* Bottom sheet on phones, centred card from sm up. The sheet itself scrolls,
+          so the header and the submit button stay put on every screen size. */}
       <div
         ref={dialogRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="relative w-full max-w-xl border border-line-dark bg-surface p-6 sm:p-8"
+        className="relative flex max-h-[92dvh] w-full flex-col rounded-t-2xl border border-line-dark bg-surface sm:max-w-lg sm:rounded-card"
       >
-        <div className="flex items-start justify-between gap-6">
+        <div className="flex items-start justify-between gap-4 border-b border-line-dark px-5 pb-4 pt-5 sm:px-7">
           <div>
-            <p className="font-display text-eyebrow uppercase text-lime">{site.tagline}</p>
-            <h2 id={titleId} className="mt-2 text-h3 text-cloud">
-              Book a tour
+            <p className="font-display text-eyebrow uppercase text-lime">Book a tour</p>
+            <h2 id={titleId} className="mt-1 text-h3 text-cloud">
+              Come and see the space
             </h2>
+            <p className="mt-1 text-small text-slate">Takes a minute. We reply on WhatsApp.</p>
           </div>
           <button
             type="button"
             onClick={onClose}
             aria-label="Close"
-            className="grid h-11 w-11 shrink-0 place-items-center text-slate hover:text-cloud"
+            className="-mr-2 -mt-1 grid h-11 w-11 shrink-0 place-items-center rounded-pill text-slate hover:bg-ink hover:text-cloud"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
               <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
@@ -145,97 +146,86 @@ export function BookTourModal({ open, onClose }: { open: boolean; onClose: () =>
           </button>
         </div>
 
-        <p className="mt-3 text-small text-slate">
-          Send us the details and we will continue the conversation on WhatsApp.
-        </p>
+        <form onSubmit={submit} noValidate className="flex min-h-0 flex-1 flex-col">
+          <div className="min-h-0 flex-1 overflow-y-auto px-5 py-5 sm:px-7">
+            <div className="grid gap-4">
+              <Field label="Your name" required error={errors.name}>
+                {(id, describedBy) => (
+                  <input
+                    id={id}
+                    value={values.name}
+                    onChange={set("name")}
+                    autoComplete="name"
+                    autoCapitalize="words"
+                    aria-describedby={describedBy}
+                    className={inputClass}
+                  />
+                )}
+              </Field>
 
-        <form onSubmit={submit} noValidate className="mt-6 grid gap-4 sm:grid-cols-2">
-          <Field label="Name" required error={errors.name} className="sm:col-span-2">
-            {(id, describedBy) => (
-              <input
-                id={id}
-                value={values.name}
-                onChange={set("name")}
-                autoComplete="name"
-                aria-describedby={describedBy}
-                className={inputClass}
-              />
-            )}
-          </Field>
+              <Field label="Phone / WhatsApp" required error={errors.phone}>
+                {(id, describedBy) => (
+                  <input
+                    id={id}
+                    type="tel"
+                    inputMode="tel"
+                    value={values.phone}
+                    onChange={set("phone")}
+                    autoComplete="tel"
+                    placeholder="+91"
+                    aria-describedby={describedBy}
+                    className={inputClass}
+                  />
+                )}
+              </Field>
 
-          <Field label="Phone" required error={errors.phone}>
-            {(id, describedBy) => (
-              <input
-                id={id}
-                type="tel"
-                value={values.phone}
-                onChange={set("phone")}
-                autoComplete="tel"
-                aria-describedby={describedBy}
-                className={inputClass}
-              />
-            )}
-          </Field>
+              <Field label="I'm interested in">
+                {(id) => (
+                  <select
+                    id={id}
+                    value={values.interest}
+                    onChange={set("interest")}
+                    className={cn(inputClass, "appearance-none bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2216%22 height=%2216%22 fill=%22none%22><path d=%22M4 6l4 4 4-4%22 stroke=%22%237C7C7C%22 stroke-width=%221.5%22 stroke-linecap=%22round%22/></svg>')] bg-[length:16px] bg-[right_1rem_center] bg-no-repeat pr-10")}
+                  >
+                    {interests.map((i) => (
+                      <option key={i} value={i}>
+                        {i}
+                      </option>
+                    ))}
+                  </select>
+                )}
+              </Field>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <Field label="Number of people">
+                  {(id) => (
+                    <input
+                      id={id}
+                      inputMode="numeric"
+                      pattern="[0-9]*"
+                      value={values.people}
+                      onChange={set("people")}
+                      className={inputClass}
+                    />
+                  )}
+                </Field>
+                <Field label="Preferred visit date">
+                  {(id) => (
+                    <input
+                      id={id}
+                      type="date"
+                      value={values.date}
+                      onChange={set("date")}
+                      className={cn(inputClass, "[color-scheme:dark]")}
+                    />
+                  )}
+                </Field>
+              </div>
+            </div>
+          </div>
 
-          <Field label="Email" error={errors.email}>
-            {(id, describedBy) => (
-              <input
-                id={id}
-                type="email"
-                value={values.email}
-                onChange={set("email")}
-                autoComplete="email"
-                aria-describedby={describedBy}
-                className={inputClass}
-              />
-            )}
-          </Field>
-
-          <Field label="Interested in">
-            {(id) => (
-              <select id={id} value={values.interest} onChange={set("interest")} className={inputClass}>
-                {interests.map((i) => (
-                  <option key={i} value={i}>
-                    {i}
-                  </option>
-                ))}
-              </select>
-            )}
-          </Field>
-
-          <Field label="Number of people">
-            {(id) => (
-              <input
-                id={id}
-                inputMode="numeric"
-                value={values.people}
-                onChange={set("people")}
-                className={inputClass}
-              />
-            )}
-          </Field>
-
-          <Field label="Preferred visit date" className="sm:col-span-2">
-            {(id) => (
-              <input id={id} type="date" value={values.date} onChange={set("date")} className={inputClass} />
-            )}
-          </Field>
-
-          <Field label="Message" className="sm:col-span-2">
-            {(id) => (
-              <textarea
-                id={id}
-                rows={3}
-                value={values.message}
-                onChange={set("message")}
-                className={inputClass}
-              />
-            )}
-          </Field>
-
-          <div className="mt-2 sm:col-span-2">
-            <Button type="submit" variant="primary" arrow className="group w-full sm:w-auto">
-              Send enquiry
+          <div className="border-t border-line-dark px-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))] pt-4 sm:px-7 sm:pb-6">
+            <Button type="submit" variant="primary" arrow className="group w-full">
+              Send on WhatsApp
             </Button>
           </div>
         </form>
