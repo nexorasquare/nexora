@@ -1,21 +1,6 @@
-import { Hero } from "@/sections/facilities/Hero";
-import { CategoryGrid } from "@/sections/facilities/CategoryGrid";
-import { AmenitiesGrid } from "@/sections/facilities/AmenitiesGrid";
-import { CTA } from "@/sections/facilities/CTA";
-import { Metadata } from "next";
+import { redirect } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Premium Workspaces & Facilities",
-  description: "Explore our premium coworking facilities in Perinthalmanna. From private executive cabins to vibrant hot desks, find the perfect space for your team.",
-};
-
-export default function Facilities() {
-  return (
-    <>
-      <Hero />
-      <CategoryGrid />
-      <AmenitiesGrid />
-      <CTA />
-    </>
-  );
+/** Retired route - kept so the old URL, which is indexed, still resolves. */
+export default function FacilitiesPage() {
+  redirect("/workspaces");
 }

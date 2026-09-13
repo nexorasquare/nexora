@@ -1,31 +1,33 @@
-import { HeroSection } from "@/sections/home/HeroSection";
-import { MarqueeSection } from "@/sections/home/MarqueeSection";
-import { AboutSection } from "@/sections/home/AboutSection";
-import { ServicesSection } from "@/sections/home/ServicesSection";
-import { ProjectsSection } from "@/sections/home/ProjectsSection";
-import { LocationSection } from "@/sections/home/LocationSection";
-import { FaqSection } from "@/sections/home/FaqSection";
-import { CtaSection } from "@/sections/home/CtaSection";
-import { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Nexora Square | Premium Coworking Space in Perinthalmanna",
-  description: "Premium Coworking Spaces crafted for Startups, Businesses, Freelancers & Remote Teams in Perinthalmanna. Experience executive suites, hot desks, and more.",
-};
+import { Hero } from "@/sections/home/Hero";
+import { ValueStrip } from "@/sections/home/ValueStrip";
+import { Intro } from "@/sections/home/Intro";
+import { WorkspacesGrid } from "@/sections/home/WorkspacesGrid";
+import { VirtualOffice } from "@/sections/home/VirtualOffice";
+import { Community } from "@/sections/home/Community";
+import { WhyNexora } from "@/sections/home/WhyNexora";
+import { Amenities } from "@/sections/home/Amenities";
+import { Experience } from "@/sections/home/Experience";
+import { Audiences } from "@/sections/home/Audiences";
+import { GalleryPreview } from "@/sections/home/GalleryPreview";
+import { Location } from "@/sections/home/Location";
+import { FinalCta } from "@/sections/home/FinalCta";
 
 export default function Home() {
   return (
     <>
-      <HeroSection />
-      <MarqueeSection />
-      <AboutSection />
-      <ServicesSection />
-      <ProjectsSection />
-      <LocationSection />
-      <FaqSection />
-      <CtaSection />
+      <Hero />
+      <ValueStrip />
+      <Intro />
+      <WorkspacesGrid />
+      <VirtualOffice />
+      <Community />
+      <WhyNexora />
+      <Amenities />
+      <Experience />
+      <Audiences />
+      <GalleryPreview />
+      <Location />
+      <FinalCta />
     </>
   );
 }
-
-

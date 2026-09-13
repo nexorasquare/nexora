@@ -1,69 +1,37 @@
 "use client";
+
 import React, { useEffect } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { site, whatsappLink } from "@/content/site";
+import type { NearbyPlace } from "@/content/nearby";
 
-// Custom Leaflet Icons
-const createCustomIcon = (isActive: boolean) => {
-  return L.divIcon({
-    className: "custom-leaflet-icon",
-    html: `<div style="
-      width: ${isActive ? '24px' : '16px'};
-      height: ${isActive ? '24px' : '16px'};
-      background-color: ${isActive ? '#FFFFFF' : '#99D508'};
-      border: 3px solid #0C0C0C;
-      border-radius: 50%;
-      box-shadow: 0 0 10px rgba(153,213,8,0.5);
-      transition: all 0.3s ease;
-    "></div>`,
-    iconSize: isActive ? [24, 24] : [16, 16],
-    iconAnchor: isActive ? [12, 12] : [8, 8],
-    popupAnchor: [0, -12],
+const dotIcon = (isActive: boolean) =>
+  L.divIcon({
+    className: "nexora-marker",
+    html: `<span style="display:block;width:${isActive ? 20 : 13}px;height:${isActive ? 20 : 13}px;background:${isActive ? "#F4F5F6" : "#99D508"};border:2px solid #060B0F;border-radius:50%"></span>`,
+    iconSize: isActive ? [20, 20] : [13, 13],
+    iconAnchor: isActive ? [10, 10] : [6.5, 6.5],
+    popupAnchor: [0, -10],
   });
-};
 
 const mainIcon = L.divIcon({
-  className: "custom-leaflet-main-icon",
-  html: `<div style="
-    width: 48px;
-    height: 48px;
-    background-color: #99D508;
-    border: 4px solid #0C0C0C;
-    border-radius: 50%;
-    box-shadow: 0 0 30px rgba(153,213,8,1);
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  ">
-    <div style="width: 16px; height: 16px; background-color: #0C0C0C; border-radius: 50%;"></div>
-    <div style="position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 3px solid #99D508; animation: pulse 1.5s infinite; top: -3px; left: -3px;"></div>
-  </div>
-  <style>
-    @keyframes pulse {
-      0% { transform: scale(1); opacity: 1; }
-      100% { transform: scale(1.8); opacity: 0; }
-    }
-  </style>`,
-  iconSize: [48, 48],
-  iconAnchor: [24, 24],
-  popupAnchor: [0, -24],
+  className: "nexora-marker-main",
+  html: `<span style="display:grid;place-items:center;width:34px;height:34px;background:#99D508;border:3px solid #060B0F;border-radius:50%"><span style="width:10px;height:10px;background:#060B0F;border-radius:50%"></span></span>`,
+  iconSize: [34, 34],
+  iconAnchor: [17, 17],
+  popupAnchor: [0, -18],
 });
 
-type LocationPoint = {
-  id: string;
-  category: string;
-  name: string;
-  dist: string;
-  lat: number;
-  lng: number;
-};
-
-// Map controller to handle panning when active location changes
-function MapController({ activeLocation, center }: { activeLocation: LocationPoint | null, center: { lat: number, lng: number } }) {
+function MapController({
+  activeLocation,
+  center,
+}: {
+  activeLocation: NearbyPlace | null;
+  center: { lat: number; lng: number };
+}) {
   const map = useMap();
-  
   useEffect(() => {
     if (activeLocation) {
       map.setView([activeLocation.lat, activeLocation.lng], 16, { animate: true });
@@ -71,7 +39,6 @@ function MapController({ activeLocation, center }: { activeLocation: LocationPoi
       map.setView([center.lat, center.lng], 14, { animate: true });
     }
   }, [activeLocation, map, center]);
-
   return null;
 }
 
@@ -79,52 +46,52 @@ export default function LeafletMap({
   locations,
   activeLocation,
   setActiveLocation,
-  center
+  center,
 }: {
-  locations: LocationPoint[];
-  activeLocation: LocationPoint | null;
-  setActiveLocation: (loc: LocationPoint | null) => void;
+  locations: NearbyPlace[];
+  activeLocation: NearbyPlace | null;
+  setActiveLocation: (loc: NearbyPlace | null) => void;
   center: { lat: number; lng: number };
 }) {
-  
   return (
-    <div className="w-full h-full relative z-0 leaflet-container-dark">
-      <MapContainer 
-        center={[center.lat, center.lng]} 
-        zoom={14} 
+    <div className="nexora-map relative z-0 h-full w-full">
+      <MapContainer
+        center={[center.lat, center.lng]}
+        zoom={14}
         scrollWheelZoom={false}
-        zoomControl={true}
-        style={{ height: '100%', width: '100%', borderRadius: '40px' }}
+        style={{ height: "100%", width: "100%" }}
       >
-        {/* Google Maps Standard Tiles */}
         <TileLayer
           url="https://mt1.google.com/vt/lyrs=m&x={x}&y={y}&z={z}"
-          attribution='&copy; Google Maps'
+          attribution="&copy; Google Maps"
         />
-        
+
         <MapController activeLocation={activeLocation} center={center} />
 
-        {/* Main Marker */}
-        <Marker 
-          position={[center.lat, center.lng]} 
+        <Marker
+          position={[center.lat, center.lng]}
           icon={mainIcon}
-          eventHandlers={{
-            click: () => setActiveLocation(null)
-          }}
+          eventHandlers={{ click: () => setActiveLocation(null) }}
         >
-          <Popup className="custom-popup">
-            <div className="p-2 bg-white text-[#0C0C0C] rounded-lg min-w-[200px]">
-              <div className="font-black text-lg mb-1">Nexora Square</div>
-              <div className="text-xs font-medium text-gray-600 mb-3">Premium Coworking Space</div>
+          <Popup>
+            <div className="min-w-[190px] p-1">
+              <p className="text-base font-bold text-[#060B0F]">{site.name}</p>
+              <p className="mb-3 text-xs text-[#666]">{site.descriptor}</p>
               <div className="flex flex-col gap-2">
-                <button className="w-full py-2 bg-[#0C0C0C] text-white text-xs uppercase tracking-wider rounded hover:bg-[#99D508] hover:text-[#0C0C0C] transition-colors">
-                  Book a Tour
-                </button>
-                <a 
-                  href="https://maps.app.goo.gl/WpEx9BwzG7SN3Hxn8" 
-                  target="_blank" 
+                {/* Was a dead button - now a real booking action, consistent with the rest of the site. */}
+                <a
+                  href={whatsappLink(`Hello ${site.name}, I would like to book a tour.`)}
+                  target="_blank"
                   rel="noreferrer"
-                  className="w-full py-2 bg-[#99D508] text-[#0C0C0C] font-bold text-center text-xs uppercase tracking-wider rounded transition-colors inline-block"
+                  className="block w-full rounded bg-[#99D508] py-2 text-center text-xs font-bold uppercase tracking-wider text-[#060B0F]"
+                >
+                  Book a Tour
+                </a>
+                <a
+                  href={site.directionsLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="block w-full rounded border border-[#060B0F] py-2 text-center text-xs font-medium uppercase tracking-wider text-[#060B0F]"
                 >
                   Get Directions
                 </a>
@@ -133,27 +100,26 @@ export default function LeafletMap({
           </Popup>
         </Marker>
 
-        {/* Directory Markers */}
-        {locations.map(loc => (
-          <Marker 
+        {locations.map((loc) => (
+          <Marker
             key={loc.id}
             position={[loc.lat, loc.lng]}
-            icon={createCustomIcon(activeLocation?.id === loc.id)}
-            eventHandlers={{
-              click: () => setActiveLocation(loc)
-            }}
+            icon={dotIcon(activeLocation?.id === loc.id)}
+            eventHandlers={{ click: () => setActiveLocation(loc) }}
           >
-            <Popup className="custom-popup">
-              <div className="p-1 bg-white text-[#0C0C0C] rounded-lg min-w-[180px]">
-                <div className="text-xs font-bold text-[#99D508] uppercase mb-1">{loc.category}</div>
-                <div className="font-medium text-sm mb-2">{loc.name}</div>
-                <div className="flex justify-between items-center border-t border-gray-100 pt-2">
-                  <span className="text-xs font-light text-gray-500">{loc.dist}</span>
-                  <a 
-                    href={`https://www.google.com/maps/dir/?api=1&destination=${loc.lat},${loc.lng}`} 
-                    target="_blank" 
+            <Popup>
+              <div className="min-w-[170px] p-1">
+                <p className="text-[10px] font-bold uppercase tracking-wider text-[#5c7f05]">
+                  {loc.category}
+                </p>
+                <p className="mb-2 text-sm font-medium text-[#060B0F]">{loc.name}</p>
+                <div className="flex items-center justify-between border-t border-gray-100 pt-2">
+                  <span className="text-xs text-[#666]">{loc.dist}</span>
+                  <a
+                    href={`https://www.google.com/maps/dir/?api=1&destination=${loc.lat},${loc.lng}`}
+                    target="_blank"
                     rel="noreferrer"
-                    className="text-xs font-medium text-blue-600 hover:underline"
+                    className="text-xs font-medium text-[#1a56db] underline"
                   >
                     Directions
                   </a>
@@ -163,26 +129,16 @@ export default function LeafletMap({
           </Marker>
         ))}
       </MapContainer>
-      
-      {/* Dark theme adjustments for Leaflet Popups */}
+
       <style>{`
-        .leaflet-container-dark .leaflet-container {
-          background: #0C0C0C;
-          font-family: inherit;
+        .nexora-map .leaflet-container { background: #10171F; font-family: inherit; }
+        .nexora-map .leaflet-popup-content-wrapper,
+        .nexora-map .leaflet-popup-tip { background: #fff; color: #060B0F; border-radius: 4px; }
+        .nexora-map .leaflet-control-attribution {
+          background: rgba(6,11,15,0.75) !important;
+          color: rgba(244,245,246,0.55) !important;
         }
-        .leaflet-container-dark .leaflet-popup-content-wrapper,
-        .leaflet-container-dark .leaflet-popup-tip {
-          background: white;
-          color: #0C0C0C;
-          box-shadow: 0 10px 25px rgba(0,0,0,0.5);
-        }
-        .leaflet-container-dark .leaflet-control-attribution {
-          background: rgba(12,12,12,0.7) !important;
-          color: rgba(215,226,234,0.5) !important;
-        }
-        .leaflet-container-dark .leaflet-control-attribution a {
-          color: rgba(215,226,234,0.8) !important;
-        }
+        .nexora-map .leaflet-control-attribution a { color: rgba(244,245,246,0.8) !important; }
       `}</style>
     </div>
   );

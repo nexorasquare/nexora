@@ -1,37 +1,24 @@
-import Link from "next/link";
-import Image from "next/image";
+import { ButtonLink } from "@/components/ui/Button";
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-[#0C0C0C] text-white flex flex-col items-center justify-center p-6 text-center">
-      <div className="relative w-48 h-16 md:w-64 md:h-20 mb-8">
-        <Image
-          src="/images/logo-transparent-v2.webp"
-          alt="Nexora Square Logo"
-          fill
-          priority
-          className="object-contain"
-        />
+    <section className="relative flex min-h-[70svh] flex-col items-center justify-center overflow-hidden bg-ink px-gutter py-32 text-center">
+      <div className="absolute inset-0 grid-texture opacity-70" aria-hidden="true" />
+      <div className="relative">
+        <p className="font-display text-eyebrow uppercase text-lime">Error 404</p>
+        <h1 className="mt-5 text-h1 text-cloud">Page not found</h1>
+        <p className="mx-auto mt-5 max-w-md text-lead text-slate">
+          The page you are looking for does not exist or has been moved.
+        </p>
+        <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+          <ButtonLink href="/" variant="primary">
+            Return home
+          </ButtonLink>
+          <ButtonLink href="/workspaces" variant="secondary" arrow className="group">
+            Explore spaces
+          </ButtonLink>
+        </div>
       </div>
-
-      <h1 className="text-6xl md:text-8xl font-black text-[#99D508] mb-4">
-        404
-      </h1>
-
-      <h2 className="text-2xl md:text-3xl font-bold uppercase tracking-wider mb-4">
-        Page Not Found
-      </h2>
-
-      <p className="text-gray-400 max-w-md mb-8 text-sm md:text-base leading-relaxed">
-        The workspace or page you are looking for doesn't exist or has been relocated.
-      </p>
-
-      <Link
-        href="/"
-        className="px-8 py-4 bg-[#99D508] text-[#0C0C0C] font-bold text-sm uppercase tracking-widest rounded-xl hover:opacity-90 transition-all transform active:scale-95 shadow-lg shadow-[#99D508]/20"
-      >
-        Return to Home
-      </Link>
-    </div>
+    </section>
   );
 }
