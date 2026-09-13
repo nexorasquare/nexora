@@ -99,6 +99,16 @@
     border-radius: 2px;
   }
 
+  /* Native select popups are white by default; force the dark scheme so the
+     option list matches the form instead of showing light text on white. */
+  select {
+    color-scheme: dark;
+  }
+  select option {
+    background-color: var(--color-ink);
+    color: var(--color-cloud);
+  }
+
   ::selection {
     background: var(--color-lime);
     color: var(--color-ink);
