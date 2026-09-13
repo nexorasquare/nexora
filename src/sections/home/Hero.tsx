@@ -12,7 +12,7 @@ export function Hero() {
       {/* Photography slot sits behind the type, dimmed just enough to stay readable. */}
       <div className="absolute inset-0 -z-10">
         <Figure slot={media.hero} priority background sizes="100vw" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/85 to-ink/55" />
         <div className="absolute inset-0 grid-texture opacity-60" />
       </div>
 
@@ -29,7 +29,7 @@ export function Hero() {
           <span className="text-lime">Innovate.</span>
         </h1>
 
-        <p className="mt-8 max-w-xl text-lead text-slate">
+        <p className="mt-8 max-w-xl text-lead text-cloud/90">
           Premium workspaces, flexible offices, virtual office solutions and a thriving business
           community, all designed to help professionals and businesses move forward.
         </p>
