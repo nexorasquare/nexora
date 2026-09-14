@@ -1,4 +1,5 @@
 import { Hero } from "@/sections/home/Hero";
+import { ServicesMarquee } from "@/sections/home/ServicesMarquee";
 import { ValueStrip } from "@/sections/home/ValueStrip";
 import { Intro } from "@/sections/home/Intro";
 import { WorkspacesGrid } from "@/sections/home/WorkspacesGrid";
@@ -16,6 +17,7 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <ServicesMarquee />
       <ValueStrip />
       <Intro />
       <WorkspacesGrid />

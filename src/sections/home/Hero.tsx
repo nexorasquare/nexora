@@ -41,7 +41,7 @@ export function Hero() {
           </ButtonLink>
         </div>
 
-        <p className="mt-10 border-t border-line-dark pt-6 font-display text-eyebrow uppercase text-slate">
+        <p className="mt-10 border-t border-line-dark pt-6 font-display text-eyebrow uppercase text-lime">
           {site.address.city}, {site.address.state}
         </p>
       </div>
