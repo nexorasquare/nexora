@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { breadcrumbJsonLd } from "@/lib/schema";
 import Link from "next/link";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
@@ -62,6 +63,7 @@ const faqJsonLd = {
 export default function MeetingRoomPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([{ name: "Meeting Room in Perinthalmanna", path: "/meeting-room" }])) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
 
       <PageHero

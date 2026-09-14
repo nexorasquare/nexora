@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { breadcrumbJsonLd } from "@/lib/schema";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -25,6 +26,7 @@ const icons: IconName[] = ["address", "mail", "grow", "shield", "conference"];
 export default function VirtualOfficePage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([{ name: "Virtual Office in Perinthalmanna", path: "/virtual-office" }])) }} />
       <PageHero
         eyebrow="Virtual office in Perinthalmanna"
         title="Your business. A professional address."

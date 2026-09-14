@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { breadcrumbJsonLd } from "@/lib/schema";
 import { PageHero } from "@/components/ui/PageHero";
 import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
 export default function WorkspacesPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd([{ name: "Office Space in Perinthalmanna", path: "/workspaces" }])) }} />
       <PageHero
         eyebrow="Office space in Perinthalmanna"
         title="A space for every way of working"

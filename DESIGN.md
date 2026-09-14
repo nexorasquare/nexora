@@ -225,3 +225,9 @@ One target keyword per page, never stuffed. Each carries the keyword in `<title>
 Supporting signals: `LocalBusiness` JSON-LD sitewide (address, geo, hours, phone), `FAQPage` JSON-LD on `/about`, `/private-office` and `/meeting-room`, a "Services" footer column with keyword-anchored internal links on every page, and contextual cross-links between the five pages. `sitemap.ts` lists every route.
 
 Adding a keyword: create a route that genuinely serves it (real content, real photos, its own FAQ), add it to `footerLinks.services` in `nav.ts` and to `sitemap.ts`.
+
+### Structured data and llms.txt
+
+`src/lib/schema.ts` renders one `@graph` sitewide: `Organization`, `LocalBusiness` (address, geo, hours, `hasMap`, `areaServed`, amenities, and a `makesOffer` list of the five local services) and `WebSite`, all cross-referenced by `@id`. `breadcrumbJsonLd()` adds a `BreadcrumbList` to the four inner keyword pages. `FAQPage` lives on `/about`, `/private-office`, `/meeting-room`.
+
+`/llms.txt` is a route (`src/app/llms.txt/route.ts`) generated from the content layer, so it always matches the site. It summarises contact details, pages, workspaces, plans, packages, amenities and the FAQ for AI assistants.

@@ -4,7 +4,8 @@ import "./globals.css";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { WhatsAppFab } from "@/components/layout/WhatsAppFab";
-import { site, addressLines } from "@/content/site";
+import { site } from "@/content/site";
+import { siteJsonLd } from "@/lib/schema";
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
@@ -78,38 +79,6 @@ export const metadata: Metadata = {
   },
 };
 
-const localBusinessJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  name: site.name,
-  description: site.positioning,
-  url: site.url,
-  telephone: site.phoneDisplay,
-  email: site.email,
-  image: `${site.url}/images/og.jpg`,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: addressLines.slice(0, 2).join(", "),
-    addressLocality: site.address.city,
-    addressRegion: site.address.state,
-    postalCode: site.address.postalCode,
-    addressCountry: site.address.country,
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: site.coordinates.lat,
-    longitude: site.coordinates.lng,
-  },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      opens: "09:00",
-      closes: "20:00",
-    },
-  ],
-  sameAs: [site.instagram],
-};
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
@@ -117,7 +86,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className="flex min-h-screen flex-col">
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(siteJsonLd) }}
         />
         <SiteHeader />
         <main id="main" className="flex-1">
