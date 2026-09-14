@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useCallback, useEffect, useId, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { whatsappLink } from "@/content/site";
 import { workspaces } from "@/content/workspaces";
 import { Button } from "@/components/ui/Button";
@@ -125,7 +126,9 @@ export function BookTourModal({ open, onClose }: { open: boolean; onClose: () =>
 
   if (!open) return null;
 
-  return (
+  // Portalled to body so no ancestor stacking context (the hero uses isolate)
+  // can trap the overlay beneath the fixed header.
+  return createPortal(
     <div className="fixed inset-0 z-[100] flex items-start justify-center bg-ink/80 backdrop-blur-sm sm:items-center sm:p-6">
       <button
         type="button"
@@ -254,7 +257,8 @@ export function BookTourModal({ open, onClose }: { open: boolean; onClose: () =>
           </div>
         </form>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }
 
