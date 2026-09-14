@@ -31,6 +31,7 @@ export function BookTourModal({ open, onClose }: { open: boolean; onClose: () =>
     date: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [viewport, setViewport] = useState<{ height: number; top: number } | null>(null);
 
   const set =
     (key: keyof typeof values) =>
@@ -79,6 +80,23 @@ export function BookTourModal({ open, onClose }: { open: boolean; onClose: () =>
     };
   }, [open, onClose]);
 
+  // iOS Safari does not resize fixed elements when the keyboard opens; it scrolls
+  // the layout viewport instead. Sizing and offsetting the sheet from the visual
+  // viewport keeps the whole form, submit button included, on screen.
+  useEffect(() => {
+    if (!open) return;
+    const vv = window.visualViewport;
+    if (!vv) return;
+    const update = () => setViewport({ height: vv.height, top: vv.offsetTop });
+    update();
+    vv.addEventListener("resize", update);
+    vv.addEventListener("scroll", update);
+    return () => {
+      vv.removeEventListener("resize", update);
+      vv.removeEventListener("scroll", update);
+    };
+  }, [open]);
+
   const submit = useCallback(
     (e: React.FormEvent) => {
       e.preventDefault();
@@ -108,7 +126,7 @@ export function BookTourModal({ open, onClose }: { open: boolean; onClose: () =>
   if (!open) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-end justify-center bg-ink/80 backdrop-blur-sm sm:items-center sm:p-6">
+    <div className="fixed inset-0 z-[100] flex items-start justify-center bg-ink/80 backdrop-blur-sm sm:items-center sm:p-6">
       <button
         type="button"
         aria-label="Close dialog"
@@ -117,14 +135,20 @@ export function BookTourModal({ open, onClose }: { open: boolean; onClose: () =>
         onClick={onClose}
       />
 
-      {/* Bottom sheet on phones, centred card from sm up. The sheet itself scrolls,
-          so the header and the submit button stay put on every screen size. */}
+      {/* Full-height sheet on phones, sized to the visual viewport so it sits above
+          the keyboard; centred card from sm up. The body scrolls, so the header and
+          submit button stay put on every screen size. */}
       <div
         ref={dialogRef}
         role="dialog"
         aria-modal="true"
         aria-labelledby={titleId}
-        className="relative flex max-h-[92dvh] w-full flex-col rounded-t-2xl border border-line-dark bg-surface sm:max-w-lg sm:rounded-card"
+        style={
+          viewport
+            ? { height: viewport.height, transform: `translateY(${viewport.top}px)` }
+            : undefined
+        }
+        className="relative flex h-full w-full flex-col border border-line-dark bg-surface sm:!h-auto sm:max-h-[90vh] sm:max-w-lg sm:!translate-y-0 sm:rounded-card"
       >
         <div className="flex items-start justify-between gap-4 border-b border-line-dark px-5 pb-4 pt-5 sm:px-7">
           <div>
@@ -223,7 +247,7 @@ export function BookTourModal({ open, onClose }: { open: boolean; onClose: () =>
             </div>
           </div>
 
-          <div className="border-t border-line-dark px-5 pb-[calc(1.25rem+env(safe-area-inset-bottom))] pt-4 sm:px-7 sm:pb-6">
+          <div className="shrink-0 border-t border-line-dark px-5 py-4 sm:px-7 sm:pb-6">
             <Button type="submit" variant="primary" arrow className="group w-full">
               Send on WhatsApp
             </Button>
