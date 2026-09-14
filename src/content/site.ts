@@ -4,7 +4,7 @@ export const site = {
   descriptor: "Premium Workspace & Business Community",
   positioning:
     "A premium workspace and business ecosystem for ambitious professionals and growing businesses in Perinthalmanna.",
-  url: "https://nexorasquare.com",
+  url: "https://www.nexorasquare.com",
   phoneDisplay: "+91 994 662 0909",
   phoneHref: "tel:+919946620909",
   phoneSecondaryDisplay: "+91 994 663 0909",
