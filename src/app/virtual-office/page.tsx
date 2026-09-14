@@ -14,9 +14,10 @@ import { cn } from "@/lib/utils";
 import { media } from "@/content/media";
 
 export const metadata: Metadata = {
-  title: "Virtual Office",
+  title: "Virtual Office in Perinthalmanna",
   description:
-    "A professional business address in Perinthalmanna with mail handling, meeting room access and registration support, without maintaining a traditional office.",
+    "Virtual office in Perinthalmanna: a professional business address with mail and courier handling, meeting room access and registration support, without maintaining a traditional office.",
+  alternates: { canonical: "/virtual-office" },
 };
 
 const icons: IconName[] = ["address", "mail", "grow", "shield", "conference"];
@@ -25,7 +26,7 @@ export default function VirtualOfficePage() {
   return (
     <>
       <PageHero
-        eyebrow="Virtual office"
+        eyebrow="Virtual office in Perinthalmanna"
         title="Your business. A professional address."
         lead="Establish a professional business presence in Perinthalmanna without the cost of maintaining a traditional office."
       >

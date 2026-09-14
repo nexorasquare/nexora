@@ -207,3 +207,21 @@ Changing the phone number, address, or a workspace name is a one-file edit that 
 - Fonts: two families, five weights, `swap`.
 - Images: WebP, explicit aspect ratios (no CLS), `sizes` set per placement, hero `priority`.
 - `public/images` is 3 MB total.
+
+---
+
+## 13. Local SEO
+
+One target keyword per page, never stuffed. Each carries the keyword in `<title>`, the PageHero eyebrow or H1, the opening paragraph, the meta description and the URL, with a canonical set via `metadata.alternates`.
+
+| Keyword | Page |
+|---|---|
+| Coworking Space in Perinthalmanna | `/` |
+| Office Space in Perinthalmanna | `/workspaces` |
+| Private Office in Perinthalmanna | `/private-office` |
+| Meeting Room in Perinthalmanna | `/meeting-room` |
+| Virtual Office in Perinthalmanna | `/virtual-office` |
+
+Supporting signals: `LocalBusiness` JSON-LD sitewide (address, geo, hours, phone), `FAQPage` JSON-LD on `/about`, `/private-office` and `/meeting-room`, a "Services" footer column with keyword-anchored internal links on every page, and contextual cross-links between the five pages. `sitemap.ts` lists every route.
+
+Adding a keyword: create a route that genuinely serves it (real content, real photos, its own FAQ), add it to `footerLinks.services` in `nav.ts` and to `sitemap.ts`.

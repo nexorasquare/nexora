@@ -11,9 +11,21 @@ import { FinalCta } from "@/sections/home/FinalCta";
 import { whyNexora, audiences } from "@/content/services";
 import { media } from "@/content/media";
 import { site } from "@/content/site";
+import { faqs } from "@/content/faq";
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((f) => ({
+    "@type": "Question",
+    name: f.question,
+    acceptedAnswer: { "@type": "Answer", text: f.answer },
+  })),
+};
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Nexora Square",
+  alternates: { canonical: "/about" },
   description:
     "Nexora Square is a premium workspace and business community in Perinthalmanna for professionals, freelancers, startups, remote teams and growing businesses.",
 };
@@ -21,6 +33,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <PageHero
         eyebrow="About"
         title="More than a workspace"

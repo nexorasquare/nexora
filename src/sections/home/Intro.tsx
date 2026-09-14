@@ -16,8 +16,8 @@ export function Intro() {
             A premium workspace and business community
           </h2>
           <p className="mt-6 text-lead text-steel">
-            Nexora Square brings together premium workspaces, professional services and a vibrant
-            business community under one roof.
+            Nexora Square is a coworking space in Perinthalmanna that brings together premium
+            workspaces, professional services and a vibrant business community under one roof.
           </p>
           <p className="mt-4 text-body text-steel">
             Whether you are a freelancer looking for a productive desk, a startup building your

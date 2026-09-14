@@ -169,8 +169,8 @@ export default function PlansPage() {
                 </p>
                 <div className="mt-5 flex flex-col gap-3 sm:flex-row">
                   <BookTourButton label="Book Nexora Meet" className="flex-1" />
-                  <ButtonLink href="/contact" variant="secondary" arrow className="group flex-1">
-                    Ask a question
+                  <ButtonLink href="/meeting-room" variant="secondary" arrow className="group flex-1">
+                    Meeting room details
                   </ButtonLink>
                 </div>
               </div>

@@ -6,6 +6,8 @@ const routes: { path: string; priority: number }[] = [
   { path: "/workspaces", priority: 0.9 },
   { path: "/plans", priority: 0.9 },
   { path: "/virtual-office", priority: 0.9 },
+  { path: "/private-office", priority: 0.9 },
+  { path: "/meeting-room", priority: 0.9 },
   { path: "/community", priority: 0.8 },
   { path: "/amenities", priority: 0.8 },
   { path: "/about", priority: 0.7 },

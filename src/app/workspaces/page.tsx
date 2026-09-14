@@ -10,18 +10,19 @@ import { workspaces } from "@/content/workspaces";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Workspaces",
+  title: "Office Space in Perinthalmanna",
   description:
-    "Flexible hot desks, dedicated workstations, private team cabins, meeting pods, a conference room and a podcast space in Perinthalmanna.",
+    "Office space in Perinthalmanna to suit every way of working: hot desks, dedicated workstations, private team cabins, meeting pods, a conference room and a podcast space at Nexora Square.",
+  alternates: { canonical: "/workspaces" },
 };
 
 export default function WorkspacesPage() {
   return (
     <>
       <PageHero
-        eyebrow="Our workspaces"
+        eyebrow="Office space in Perinthalmanna"
         title="A space for every way of working"
-        lead="Flexible desks, private cabins, meeting spaces and more, designed around how you actually work."
+        lead="Flexible desks, private cabins, meeting spaces and more, designed around how you actually work. All near MarketCity Mall, Perinthalmanna."
       >
         <BookTourButton />
         <ButtonLink href="/contact" variant="secondary" arrow className="group">
@@ -68,11 +69,20 @@ export default function WorkspacesPage() {
                   ))}
                 </ul>
 
-                <div className="mt-9">
+                <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                   <BookTourButton
                     label="Book a tour"
                     variant={light ? "secondaryLight" : "primary"}
                   />
+                  {w.slug === "private-team-cabins" ? (
+                    <ButtonLink href="/private-office" variant={light ? "linkLight" : "link"} arrow className="group">
+                      Private office in Perinthalmanna
+                    </ButtonLink>
+                  ) : w.slug === "conference-room" ? (
+                    <ButtonLink href="/meeting-room" variant={light ? "linkLight" : "link"} arrow className="group">
+                      Book the meeting room
+                    </ButtonLink>
+                  ) : null}
                 </div>
               </Reveal>
             </div>

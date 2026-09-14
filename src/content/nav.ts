@@ -14,6 +14,13 @@ export const navLinks: NavLink[] = [
 
 export const footerLinks = {
   explore: navLinks.filter((l) => l.href !== "/"),
+  services: [
+    { label: "Coworking Space in Perinthalmanna", href: "/" },
+    { label: "Office Space in Perinthalmanna", href: "/workspaces" },
+    { label: "Private Office in Perinthalmanna", href: "/private-office" },
+    { label: "Meeting Room in Perinthalmanna", href: "/meeting-room" },
+    { label: "Virtual Office in Perinthalmanna", href: "/virtual-office" },
+  ] as NavLink[],
   legal: [
     { label: "Privacy Policy", href: "/privacy" },
     { label: "Terms of Service", href: "/terms" },

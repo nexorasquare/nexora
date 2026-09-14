@@ -9,7 +9,7 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-line-dark bg-ink">
       <div className="mx-auto w-full max-w-shell px-gutter py-16 md:py-20">
-        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-1">
             <div className="relative h-16 w-64">
               <Image
@@ -33,6 +33,21 @@ export function SiteFooter() {
             </h2>
             <ul className="mt-5 flex flex-col gap-3">
               {footerLinks.explore.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-small text-slate transition-colors hover:text-lime">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          <nav aria-labelledby="footer-services">
+            <h2 id="footer-services" className="font-display text-eyebrow uppercase text-cloud">
+              Services
+            </h2>
+            <ul className="mt-5 flex flex-col gap-3">
+              {footerLinks.services.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href} className="text-small text-slate transition-colors hover:text-lime">
                     {link.label}

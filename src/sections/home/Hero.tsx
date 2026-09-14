@@ -18,7 +18,7 @@ export function Hero() {
 
       <div className="mx-auto w-full max-w-shell px-gutter">
         <p className="font-display text-eyebrow uppercase text-lime">
-          {"Perinthalmanna's Premium Workspace & Business Community"}
+          Premium coworking space in Perinthalmanna
         </p>
 
         <h1 className="mt-6 text-display text-cloud">

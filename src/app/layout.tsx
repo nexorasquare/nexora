@@ -27,11 +27,12 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} | ${site.descriptor} in Perinthalmanna`,
+    default: `Coworking Space in Perinthalmanna | ${site.name}`,
     template: `%s | ${site.name}`,
   },
   description:
-    "Premium workspaces, private cabins, virtual office solutions and a business community in Perinthalmanna. Work. Connect. Innovate.",
+    "Premium coworking space in Perinthalmanna near MarketCity Mall: hot desks, dedicated workstations, private offices, a meeting room and virtual office services. Work. Connect. Innovate.",
+  alternates: { canonical: "/" },
   keywords: [
     "coworking space Perinthalmanna",
     "premium coworking space Perinthalmanna",
